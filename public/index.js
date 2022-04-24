@@ -12,20 +12,25 @@ const citymap = {
 
 
 async function initMap() {
-    getData()
-    var myLatlng = new google.maps.LatLng(38,  12);
+    const json = await getData()
+    console.log(json[0].st_x)
+    console.log(typeof json[0].st_x)
+    var myLatlng = new google.maps.LatLng(parseFloat(json[0].st_x), parseFloat(json[0].st_y));
+
     var mapOptions = {
-        zoom: 9,
+        zoom: 13,
         center: myLatlng
     }
     var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
-    var marker = new google.maps.Marker({
-        position: citymap.Porto.center,
-        title:"Hello World!"
-    });
+    for (let i = 0; i < json.length; i++) {
+        var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(parseFloat(json[i].st_x), parseFloat(json[i].st_y)),
+            title:"Hello World!"
+        });
 
-    marker.setMap(map);
+        marker.setMap(map);
+    }
 
 }
 
@@ -33,32 +38,15 @@ window.initMap = initMap;
 
 
 async function getData(){
-    // let lat
-    // let long
-    // const data = await fetch('http://localhost:5000/api/users')
-    // const json = await data.json()
-    // lat = json[0].st_x
-    // long = json[0].st_y
-    //
-    // return {lat, long}
+    var proxyUrl = 'https://cors-anywhere.herokuapp.com/',
+        targetUrl = 'https://ulide-party-api.herokuapp.com/api/spots'
 
-    const url = 'http://localhost:5000/api/users';
 
-    const options = {
-        method: 'GET',
-        mode: 'no-cors',
-        headers: {
-            'Authorization': `Bearer ${process.env.REACT_APP_YAMMER_ACCESS_TOKEN}`,
-        }
-    };
+    const response = await fetch(
+        proxyUrl + targetUrl)
+    const data = await response.json()
+    console.log(data)
+    return data
 
-    fetch(url, options).then(function(response) {
-        console.log(response);
-        return response.json();
-    }).then(function(json) {
-        console.log(json);
-    }).catch(e => {
-        console.log(e);
-    });;
 }
 

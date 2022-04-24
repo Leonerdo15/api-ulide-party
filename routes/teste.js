@@ -76,7 +76,7 @@
 // module.exports.func = getLocations
 
 var request = require('sync-request');
-var res = request('GET', 'http://localhost:5000/api/spots')
+var res = request('GET', 'https://ulide-party-api.herokuapp.com/api/spots')
 var jsonArray = JSON.parse(res.getBody());
 
 console.log(JSON.parse(res.getBody()));

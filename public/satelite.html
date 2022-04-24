@@ -27,28 +27,36 @@
 <script>
     const api_url = 'https://ulide-party-api.herokuapp.com/api/users'
 
+    var proxyUrl = 'https://cors-anywhere.herokuapp.com/',
+        targetUrl = 'https://ulide-party-api.herokuapp.com/api/users'
+
 
     async function getISS(){
-        // const response = await fetch(
-        //     api_url)
-        // const data = await response.json()
-        // console.log(data)
+        const response = await fetch(
+            proxyUrl + targetUrl)
+        const data = await response.json()
+        console.log(data)
 
-        var proxyUrl = 'https://cors-anywhere.herokuapp.com/',
-            targetUrl = 'https://ulide-party-api.herokuapp.com/'
-        fetch(proxyUrl + targetUrl)
-            .then(blob => blob.json())
-            .then(data => {
-                console.table(data);
-                return data;
-            })
-            .catch(e => {
-                console.log(e);
-                return e;
-            });
     }
 
     getISS()
+
+
+    // fetch(proxyUrl + targetUrl)
+    //     .then(blob => blob.json())
+    //     .then(data => {
+    //         console.table(data);
+    //         return data;
+    //     })
+    //     .catch(e => {
+    //         console.log(e);
+    //         return e;
+    //     });
+    //
+    // async function getData(){
+    //     const request = await  fetch()
+    // }
+
 
 
 </script>
