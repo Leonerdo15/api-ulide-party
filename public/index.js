@@ -38,8 +38,7 @@ window.initMap = initMap;
 
 
 async function getData(){
-    var proxyUrl = 'https://cors-anywhere.herokuapp.com/',
-        targetUrl = 'https://ulide-party-api.herokuapp.com/api/spots'
+    var targetUrl = 'https://ulide-party-api.herokuapp.com/api/spots'
 
 
     const response = await fetch(
