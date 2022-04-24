@@ -35,18 +35,18 @@ async function initMap() {
     // }
 
 
-    // for (let i = 0; i < json.length; i++) {
-    //     const cityCircle = new google.maps.Circle({
-    //         strokeColor: "#FF0000",
-    //         strokeOpacity: 0.8,
-    //         strokeWeight: 2,
-    //         fillColor: "#FF0000",
-    //         fillOpacity: 0.35,
-    //         map,
-    //         center: { lat: json[i].st_x, lng: json[i].st_y },
-    //         radius: Math.sqrt(spot.sp_views) * 100,
-    //     });
-    // }
+    for (let i = 0; i < json.length; i++) {
+        const cityCircle = new google.maps.Circle({
+            strokeColor: "#FF0000",
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: "#FF0000",
+            fillOpacity: 0.35,
+            map,
+            center: { lat: json[i].st_x, lng: json[i].st_y },
+            radius: Math.sqrt(spot.sp_views) * 100,
+        });
+    }
 }
 
 async function getData(){
