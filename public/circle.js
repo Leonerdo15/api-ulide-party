@@ -13,7 +13,7 @@ async function initMap() {
     const json = await getData()
     // console.log(json)
     const map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 12,
+        zoom: 14,
         center: citymap.lisboa.center,
         mapTypeId: "terrain",
     });
