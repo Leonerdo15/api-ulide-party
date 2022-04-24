@@ -36,10 +36,16 @@ const getSpotsArea = (request, response) => {
 const getSpotById = (request, response) => {
     const id = parseInt(request.params.id)
 
-    client.query('SELECT * FROM spots WHERE us_id = $1', [id], (error, results) => {
+    client.query('SELECT * FROM spots WHERE sp_id = $1', [id], (error, results) => {
         if (error) {
             throw error
-        }
+        } client.query('UPDATE spots SET sp_views = sp_views + 1 WHERE sp_id = $1',[id], (error, results) =>{
+            if(error){
+                throw error
+            }
+            response.status(200).json(results.rows)
+        })
+
         response.status(200).json(results.rows)
     })
 }
@@ -74,7 +80,7 @@ const updateSpot = (request, response) => {
 const deleteSpot = (request, response) => {
     const id = parseInt(request.params.id)
 
-    client.query('DELETE FROM spots WHERE us_id = $1', [id], (error, results) => {
+    client.query('DELETE FROM spots WHERE sp_id = $1', [id], (error, results) => {
         if (error) {
             throw error
         }
