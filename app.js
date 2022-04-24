@@ -3,14 +3,6 @@ var path = require('path');
 const bodyParser = require('body-parser')
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-
-
-const users = require('./routes/user')
-const spots = require('./routes/spot')
-
 var app = express();
 
 app.use(logger('dev'));
@@ -26,9 +18,10 @@ app.use(
     })
 )
 
+const users = require('./routes/user')
+const spots = require('./routes/spot')
 
-app.use('/api/teste', usersRouter);
-app.use('/', indexRouter);
+
 
 app.get('/api/users', users.getUsers)
 app.get('/api/users/login', users.getLoginAuthentication)
