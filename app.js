@@ -8,8 +8,8 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 
-const users = require('../api-ulide-party/routes/user')
-const spots = require('../api-ulide-party/routes/spot')
+const users = require('./routes/user')
+const spots = require('./routes/spot')
 
 var app = express();
 
