@@ -45,7 +45,7 @@ async function initMap() {
             map,
             center: { lat: json[i].st_x, lng: json[i].st_y },
             // center: citymap.lisboa.center,
-            radius: Math.sqrt(json[i].sp_views) * 100,
+            radius: Math.sqrt(json[i].sp_views) * 10,
         });
     }
 }
