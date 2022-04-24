@@ -46,5 +46,16 @@ async function getData(){
     console.log(data)
     return data
 
+
+    // var proxyUrl = 'https://cors-anywhere.herokuapp.com/',
+    //     targetUrl = 'https://ulide-party-api.herokuapp.com/api/spots'
+    //
+    //
+    // const response = await fetch(
+    //     proxyUrl + targetUrl)
+    // const data = await response.json()
+    // console.log(data)
+    // return data
+
 }
 
