@@ -96,6 +96,7 @@ async function initMap() {
                 stylers: [{ color: "#17263c" }],
             },
         ],
+
     });
 
     // Construct the circle for each value in citymap.
