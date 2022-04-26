@@ -150,7 +150,7 @@ async function initMap() {
             // icon:"/images/rose-dot.png",
             icon: icons.bar.url,
             position: new google.maps.LatLng(parseFloat(json[i].st_x), parseFloat(json[i].st_y)),
-            title:"Hello World!",
+            title:json[i].sp_name,
             animation: google.maps.Animation.DROP,
 
         });
@@ -164,24 +164,24 @@ window.initMap = initMap;
 
 
 async function getData(){
-    // var targetUrl = 'https://ulide-party-api.herokuapp.com/api/spots'
-    //
-    //
-    // const response = await fetch(targetUrl)
-    // const data = await response.json()
-    // console.log(data)
-    // return data
+    var targetUrl = 'https://ulide-party-api.herokuapp.com/api/spots'
 
 
-    var proxyUrl = 'https://cors-anywhere.herokuapp.com/',
-        targetUrl = 'https://ulide-party-api.herokuapp.com/api/spots'
-
-
-    const response = await fetch(
-        proxyUrl + targetUrl)
+    const response = await fetch(targetUrl)
     const data = await response.json()
     console.log(data)
     return data
+
+
+    // var proxyUrl = 'https://cors-anywhere.herokuapp.com/',
+    //     targetUrl = 'https://ulide-party-api.herokuapp.com/api/spots'
+    //
+    //
+    // const response = await fetch(
+    //     proxyUrl + targetUrl)
+    // const data = await response.json()
+    // console.log(data)
+    // return data
 
 }
 
