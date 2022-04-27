@@ -19,7 +19,7 @@ const getSpots = (request, response) => {
 const getSpotsArea = (request, response) => {
     const lat = parseFloat(request.params.lat)
     const long = parseFloat(request.params.long)
-    const dist = parseInt(request.params.dist)
+    const dist = parseFloat(request.params.dist)
 
     const query = `with data as( select st_astext(ST_Buffer( ST_GeomFromText(\'POINT(${lat} ${long})\'), ${dist}, \'quad_segs=8\')) circ ) select ST_AsText(ST_Intersection(sp_location, data.circ::geometry)) from spots, data;`
 
