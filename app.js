@@ -25,7 +25,7 @@ const spots = require('./routes/spot')
 
 app.get('/api/users', users.getUsers)
 app.get('/api/users/login', users.getLoginAuthentication)
-app.post('/api/users/creat', users.createUser)
+app.post('/api/users', users.createUser)
 app.put('/api/users/:id', users.updateUser)
 app.get('/api/users/:id', users.getUserById)
 app.delete('/api/users/:id', users.deleteUser)
@@ -39,3 +39,12 @@ app.put('/api/spots/:id', spots.updateSpot)
 app.delete('/api/spots/:id', spots.deleteSpot)
 
 module.exports = app;
+
+/**
+ *
+ * Cmd:
+ * git push heroku main
+ * heroku dyno:restart
+ * heroku logs --tail
+ *
+ * */

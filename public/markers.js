@@ -128,9 +128,7 @@ const icons = {
 
 async function initMap() {
     const json = await getData()
-    console.log(json[0].st_x)
-    console.log(typeof json[0].st_x)
-    var myLatlng = new google.maps.LatLng(parseFloat(json[0].st_x), parseFloat(json[0].st_y));
+    var myLatlng = new google.maps.LatLng(parseFloat(json[0].sp_lat), parseFloat(json[0].sp_long));
 
     var mapOptions = {
         zoom: 13,
@@ -145,11 +143,20 @@ async function initMap() {
     }
     var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
+
+    let url_icon = "";
     for (let i = 0; i < json.length; i++) {
+
+        if(json[i].sp_st_id === "1"){
+            url_icon = icons.bar.url
+        } else if (json[i].sp_st_id === "1") {
+            url_icon = icons.rest.url
+        } else{
+            url_icon = icons.disco.url
+        }
         var marker = new google.maps.Marker({
-            // icon:"/images/rose-dot.png",
-            icon: icons.bar.url,
-            position: new google.maps.LatLng(parseFloat(json[i].st_x), parseFloat(json[i].st_y)),
+            icon: url_icon,
+            position: new google.maps.LatLng(parseFloat(json[i].sp_lat), parseFloat(json[i].sp_long)),
             title:json[i].sp_name,
             animation: google.maps.Animation.DROP,
 

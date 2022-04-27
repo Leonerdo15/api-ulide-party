@@ -145,7 +145,7 @@ async function initMap() {
             fillColor: "#ffb500",
             fillOpacity: 0.35,
             map,
-            center: { lat: json[i].st_x, lng: json[i].st_y },
+            center: { lat: json[i].sp_lat, lng: json[i].sp_long },
             // center: citymap.lisboa.center,
             radius: Math.sqrt(json[i].sp_views) * 10,
         });

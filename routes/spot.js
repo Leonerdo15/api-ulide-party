@@ -8,7 +8,7 @@ client.connect();
 
 
 const getSpots = (request, response) => {
-    client.query('select *, st_x(sp_location), st_y(sp_location) from spots', (error, results) => {
+    client.query('select *, st_x(sp_location) sp_lat, st_y(sp_location) sp_long from spots', (error, results) => {
         if (error) {
             throw error
         }

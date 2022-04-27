@@ -3,6 +3,8 @@ const express = require('express');
 const {log} = require("debug");
 const app = express();
 const url = require('url');
+var md5 = require('md5');
+
 
 
 client.connect();
@@ -56,13 +58,24 @@ const createUser = (req, res) => {
   let query1 = 'INSERT INTO users ('
   let query2 = ' ) VALUES ('
 
-  query1 += `${Object.keys(queryObject)[0]}, `
-  query2 += `${ "'" + queryObject[Object.keys(queryObject)[0]] + "', " }`
+  if (Object.keys(queryObject)[0] === "us_password"){
+    query1 += `${Object.keys(queryObject)[0]}, `
+    query2 += `${ "'" + md5(queryObject[Object.keys(queryObject)[0]]) + "', " }`
+  }else {
+    query1 += `${Object.keys(queryObject)[0]}, `
+    query2 += `${ "'" + queryObject[Object.keys(queryObject)[0]] + "', " }`
+  }
 
   for (let i = 1; i < Object.keys(queryObject).length; i++) {
-    query1 += `${Object.keys(queryObject)[i]}, `
-    query2 += `${ "'" + queryObject[Object.keys(queryObject)[i]] + "', " }`
+    if (Object.keys(queryObject)[i] === "us_password"){
+      query1 += `${Object.keys(queryObject)[i]}, `
+      query2 += `${ "'" + md5(queryObject[Object.keys(queryObject)[i]]) + "', " }`
+    }else {
+      query1 += `${Object.keys(queryObject)[i]}, `
+      query2 += `${ "'" + queryObject[Object.keys(queryObject)[i]] + "', " }`
+    }
   }
+
   query1 = query1.substring(0, query1.length - 2)
   query2 = query2.substring(0, query2.length - 2)
   query2 += ')'
