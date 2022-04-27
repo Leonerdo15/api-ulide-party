@@ -50,14 +50,14 @@ const getSpotById = (request, response) => {
 }
 
 const createSpot = (request, response) => {
-    // const users = request.body
-    //
-    // client.query('INSERT INTO users (us_name, us_email) VALUES ($1, $2)', [users.us_name.toString(), users.us_email.toString()], (error, results) => {
-    //     if (error) {
-    //         throw error
-    //     }
-    //     response.status(201).send(`User added with ID: `)
-    // })
+    const users = request.body
+
+    client.query('INSERT INTO users (us_name, us_email) VALUES ($1, $2)', [users.us_name, users.us_email], (error, results) => {
+        if (error) {
+            throw error
+        }
+        response.status(201).send(`User added with ID: `)
+    })
 }
 
 const updateSpot = (request, response) => {

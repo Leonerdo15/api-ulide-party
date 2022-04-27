@@ -26,17 +26,17 @@ const spots = require('./routes/spot')
 app.get('/api/users', users.getUsers)
 app.get('/api/users/login', users.getLoginAuthentication)
 app.post('/api/users', users.createUser)
-app.put('/api/users/:id', users.updateUser)
-app.get('/api/users/:id', users.getUserById)
-app.delete('/api/users/:id', users.deleteUser)
+app.put('/api/users/:id(\\d+)', users.updateUser)
+app.get('/api/users/:id(\\d+)', users.getUserById)
+app.delete('/api/users/:id(\\d+)', users.deleteUser)
 
 
 app.get('/api/spots', spots.getSpots)
 app.get('/api/spots/lat/:lat/long/:long/dist/:dist', spots.getSpotsArea)
-app.get('/api/spots/:id', spots.getSpotById)
-app.post('/api/spots', spots.createSpot)
-app.put('/api/spots/:id', spots.updateSpot)
-app.delete('/api/spots/:id', spots.deleteSpot)
+app.get('/api/spots/:id(\\d+)', spots.getSpotById)
+app.post('/api/spots(\\d+)', spots.createSpot)
+app.put('/api/spots/:id(\\d+)', spots.updateSpot)
+app.delete('/api/spots/:id(\\d+)', spots.deleteSpot)
 
 module.exports = app;
 

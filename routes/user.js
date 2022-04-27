@@ -11,6 +11,12 @@ client.connect();
 
 
 const getUsers = (req, res) => {
+  // function users(dbUser){
+  //   let user = {
+  //     us_id:""
+  //   }
+  // }
+
   client.query('SELECT * from users inner join type_users tu on users.us_tu_id = tu.tu_id', (error, results) => {
     if (error) {
       throw error
