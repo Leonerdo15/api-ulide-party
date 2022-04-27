@@ -147,6 +147,7 @@ async function initMap() {
     let url_icon = "";
     for (let i = 0; i < json.length; i++) {
 
+        console.log(json[i].sp_st_id)
         if(json[i].sp_st_id === 1){
             url_icon = icons.bar.url
         } else if (json[i].sp_st_id === 2) {
