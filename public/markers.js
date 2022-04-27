@@ -172,6 +172,8 @@ window.initMap = initMap;
 
 
 async function getData(){
+
+
     var targetUrl = 'https://ulide-party-api.herokuapp.com/api/spots'
 
 
@@ -190,6 +192,8 @@ async function getData(){
     // const data = await response.json()
     // console.log(data)
     // return data
+
+
 
 }
 
