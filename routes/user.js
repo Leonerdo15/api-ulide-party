@@ -3,7 +3,7 @@ const express = require('express');
 const {log} = require("debug");
 const app = express();
 const url = require('url');
-var md5 = require('md5');
+const md5 = require('md5');
 
 
 
@@ -45,7 +45,7 @@ const getLoginAuthentication = (req, res) => {
   query += ` WHERE ${Object.keys(queryObject)[0]} = ${ "'" + queryObject[Object.keys(queryObject)[0]] + "'" }`
 
   for (let i = 1; i < Object.keys(queryObject).length; i++) {
-    query += ` AND ${Object.keys(queryObject)[i]} = ${ "'" + queryObject[Object.keys(queryObject)[i]] + "'" }`
+    query += ` AND ${Object.keys(queryObject)[i]} = ${ "'" + md5(queryObject[Object.keys(queryObject)[i]]) + "'" }`
   }
 
   console.log(query)

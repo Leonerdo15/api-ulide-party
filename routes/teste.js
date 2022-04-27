@@ -75,10 +75,15 @@
 //
 // module.exports.func = getLocations
 
-var request = require('sync-request');
-var res = request('GET', 'https://ulide-party-api.herokuapp.com/api/spots')
-var jsonArray = JSON.parse(res.getBody());
+// var request = require('sync-request');
+// var res = request('GET', 'https://ulide-party-api.herokuapp.com/api/spots')
+// var jsonArray = JSON.parse(res.getBody());
+//
+// console.log(JSON.parse(res.getBody()));
+// console.log(jsonArray[0].st_y + " ")
+// module.exports.jsonData = jsonArray
 
-console.log(JSON.parse(res.getBody()));
-console.log(jsonArray[0].st_y + " ")
-module.exports.jsonData = jsonArray
+
+const md5 = require('md5');
+
+console.log(md5('123456'))
