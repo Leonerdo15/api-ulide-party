@@ -149,7 +149,7 @@ async function initMap() {
 
         if(json[i].sp_st_id === 1){
             url_icon = icons.bar.url
-        } else if (json[i].sp_st_id === 1) {
+        } else if (json[i].sp_st_id === 2) {
             url_icon = icons.rest.url
         } else{
             url_icon = icons.disco.url
