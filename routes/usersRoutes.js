@@ -30,7 +30,7 @@ router.get('/login', async function (req, res ,next) {
 })
 
 /* POST a user */
-router.post('/create',  async function (req, res, next) {
+router.post('/',  async function (req, res, next) {
     let newUser = req.body
     console.log(JSON.stringify(newUser))
     let result = await usersModel.saveUsers(newUser)
