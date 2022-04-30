@@ -1,4 +1,4 @@
-const client = require('../models/connection.js')
+const client = require('../database/connection.js')
 const express = require('express');
 const {log} = require("debug");
 const app = express();
@@ -38,7 +38,8 @@ const getUserById = (req, res) => {
 
 const getLoginAuthentication = (req, res) => {
   const queryObject = url.parse(req.url, true).query;
-  console.log(queryObject)
+  console.log(queryObject.us_name)
+  console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
   console.log(Object.keys(queryObject)[0])
 
   let query = `SELECT us_id FROM users`

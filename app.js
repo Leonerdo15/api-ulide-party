@@ -21,14 +21,17 @@ app.use(
 const users = require('./routes/user')
 const spots = require('./routes/spot')
 
+var usersRouter = require('./routes/usersRoutes');
 
 
-app.get('/api/users', users.getUsers)
-app.get('/api/users/login', users.getLoginAuthentication)
-app.post('/api/users', users.createUser)
-app.put('/api/users/:id(\\d+)', users.updateUser)
-app.get('/api/users/:id(\\d+)', users.getUserById)
-app.delete('/api/users/:id(\\d+)', users.deleteUser)
+// app.get('/api/users', users.getUsers)
+// app.get('/api/users/login', users.getLoginAuthentication)
+// app.post('/api/users', users.createUser)
+// app.put('/api/users/:id(\\d+)', users.updateUser)
+// app.get('/api/users/:id(\\d+)', users.getUserById)
+// app.delete('/api/users/:id(\\d+)', users.deleteUser)
+
+app.use('/api/users', usersRouter);
 
 
 app.get('/api/spots', spots.getSpots)
