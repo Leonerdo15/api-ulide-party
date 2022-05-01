@@ -1,0 +1,13 @@
+POST http://localhost:3000/api/userMessages
+Content-Type: application/json
+
+{
+  "um_me_id": 1,
+  "um_us_id": 1
+}
+
+###
+DELETE http://localhost:3000/api/messages/13
+Accept: application/json
+
+###

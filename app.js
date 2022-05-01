@@ -23,6 +23,10 @@ const usersRouter = require('./routes/usersRoutes')
 const spotsRouter = require('./routes/spotsRoutes')
 const userMessagesGroups = require('./routes/userMessageGroupsRoutes')
 const groups = require('./routes/groupsRoutes')
+const messages = require('./routes/messagesRoutes')
+const userMessages = require('./routes/usermessagesRoutes')
+
+
 
 
 
@@ -30,6 +34,8 @@ app.use('/api/users', usersRouter);
 app.use('/api/spots', spotsRouter);
 app.use('/api/userMessagesGroups', userMessagesGroups);
 app.use('/api/groups', groups)
+app.use('/api/messages', messages)
+app.use('/api/userMessages', userMessages)
 
 
 

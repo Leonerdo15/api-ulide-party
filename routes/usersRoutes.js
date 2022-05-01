@@ -1,6 +1,6 @@
-var express = require('express');
-var router = express.Router();
-var usersModel = require('../models/usersModels');
+const express = require('express');
+const router = express.Router();
+const usersModel = require('../models/usersModels');
 const md5 = require('md5');
 const url = require("url");
 
