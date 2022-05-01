@@ -35,7 +35,7 @@ module.exports.getUserById = async function(id){
 module.exports.getLoginAuthentication = async function (name, password) {
     console.log("us_name: " + name + " password: " + password)
     try {
-        let sql = "select us_id from users where us_name = $1 and us_password = $2"
+        let sql = "select us_id, us_name from users where us_name = $1 and us_password = $2"
         let result = await pool.query(sql, [name, password])
         let user = result.rows[0]
         return {status: 200, data: user}
@@ -100,10 +100,10 @@ module.exports.deleteUser = async function (id) {
 }
 
 
-function failUser(user) {
-    if (typeof user.us_name != "string" ) {
-        user.errMsg = "Invalid name";
-        return true;
-    }
-    return false;
-}
+// function failUser(user) {
+//     if (typeof user.us_name != "string" ) {
+//         user.errMsg = "Invalid name";
+//         return true;
+//     }
+//     return false;
+// }

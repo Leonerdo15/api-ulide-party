@@ -24,6 +24,8 @@ router.get('/login', async function (req, res ,next) {
     let queryObject = url.parse(req.url, true).query;
     let name = queryObject.us_name
     let password = md5(queryObject.us_password)
+
+    console.log(name)
     let result = await usersModel.getLoginAuthentication(name, password)
     let user = result.rows
     res.status(result.status).send(result.data)

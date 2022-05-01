@@ -83,7 +83,74 @@
 // console.log(jsonArray[0].st_y + " ")
 // module.exports.jsonData = jsonArray
 
+// async function f1(url, data) {
+//     const postData = async (url, data)=>{
+//         console.log(data);
+//         const response = await fetch(url, {
+//             method: 'POST',
+//             credentials: 'same-origin',
+//             headers: {
+//                 'Content-Type': 'application/json',
+//             },
+//             // Body data type must match "Content-Type" header
+//             body: JSON.stringify(data),
+//         });
+//
+//         try {
+//             const newData = await response.json();
+//             console.log(newData);
+//             return newData;
+//         }catch(error) {
+//             console.log("error", error);
+//         }
+//     }
+// }
 
-const md5 = require('md5');
 
-console.log(md5('123456'))
+
+
+
+
+
+const http = require('http')
+
+const server = http.createServer((req, res) => {
+
+    if (req.url === '/') {
+        async function getData(){
+
+            var proxyUrl = 'https://cors-anywhere.herokuapp.com/',
+                targetUrl = 'https://ulide-party-api.herokuapp.com/api/spots'
+
+
+            const response = await fetch(
+                proxyUrl + targetUrl)
+            const data = await response.json()
+            console.log(data)
+            return data
+
+        }
+        async function initMap() {
+            const json = await getData()
+            console.log(json)
+        }
+
+        initMap().then(r => {
+            console.log(r)
+        })
+    } else if (req.url === '/about') {
+        res.end('Here is our short history')
+    } else {
+        res.end(`
+    <h1>Oops!</h1>
+    <p>We can't seem to find the page you are looking for</p>
+    <a href="/">back home</a>
+    `)
+    }
+})
+
+server.listen(5000)
+
+
+
+
