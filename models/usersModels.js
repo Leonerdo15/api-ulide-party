@@ -16,6 +16,7 @@ module.exports.getUsers = async function(){
 
 module.exports.getUserById = async function(id){
     console.log(JSON.stringify(id))
+
     try {
         let sql = "select * from users where us_id = $1"
         let result = await pool.query(sql, [id])
@@ -73,7 +74,7 @@ module.exports.saveUsers = async function(user){
 
         query1 = query1.substring(0, query1.length - 2)
         query2 = query2.substring(0, query2.length - 2)
-        query2 += ')'
+        query2 += ')  returning *'
 
         let fullQuery = query1+query2
 
@@ -81,11 +82,12 @@ module.exports.saveUsers = async function(user){
         let userResult = result.rows[0];
         console.log(JSON.stringify(userResult));
         return { status: 200, data: userResult };
-    } catch (err) {
-        console.log(err);
-        return { status: 500, data: err };
+    } catch (e) {
+        console.log(e);
+        return { status: 500, data: e };
     }
 }
+
 
 module.exports.deleteUser = async function (id) {
     console.log(JSON.stringify(id));
@@ -98,6 +100,7 @@ module.exports.deleteUser = async function (id) {
         return {status: 500, data: err}
     }
 }
+
 
 
 // function failUser(user) {
