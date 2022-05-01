@@ -19,11 +19,15 @@ app.use(
 )
 
 
-const usersRouter = require('./routes/usersRoutes');
+const usersRouter = require('./routes/usersRoutes')
 const spotsRouter = require('./routes/spotsRoutes')
+const userMessagesGroups = require('./routes/userMenssageGroupsRoutes')
+
 
 app.use('/api/users', usersRouter);
 app.use('/api/spots', spotsRouter);
+app.use('/api/userMessagesGroups', userMessagesGroups);
+
 
 
 module.exports = app;
