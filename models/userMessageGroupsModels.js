@@ -34,6 +34,13 @@ module.exports.getMessagesOfAGroup = async function (id) {
     }
 }
 
-module.exports.postMessageOfAUserInAGroup = async function (message, group, user) {
-
+module.exports.postMessageOfAUserInAGroupCompleted = async function (um_id, gr_id) {
+    try {
+        let sql = "insert into user_message_groups (umg_gr_id, umg_um_id) VALUES ($1, $2) returning *"
+        let result = await pool.query(sql, [gr_id, um_id])
+        return {status: 200, data: result.rows[0]}
+    }catch (e) {
+        console.log(e)
+        return {status: 500, data: e}
+    }
 }

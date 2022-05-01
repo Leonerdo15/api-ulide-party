@@ -1,13 +1,14 @@
-POST http://localhost:3000/api/userMessages
+POST http://localhost:3000/api/userMessagesGroups
 Content-Type: application/json
 
 {
-  "um_me_id": 1,
-  "um_us_id": 1
+  "um_gr_id": 1,
+  "me_text": "boas",
+  "us_id": 1
 }
 
 ###
-DELETE http://localhost:3000/api/messages/13
+GET http://localhost:3000/api/userMessagesGroups/group/1
 Accept: application/json
 
 ###

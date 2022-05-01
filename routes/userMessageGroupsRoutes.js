@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var userMessagesGroupsModels = require('../models/userMessageGroupsModels');
 const url = require("url");
+const {creatMessage} = require("../models/messagesModels");
+const {creatUserMessage} = require("../models/userMessagesModels");
 
 /*GET all message of all groups*/
 router.get('/', async function (req, res, next) {
@@ -84,6 +86,34 @@ router.get('/group/:id(\\d+)', async function (req, res, next) {
     }
     console.log(store)
     res.status(200).send(store)
+})
+
+/*POST a message of a user in a group*/
+/*
+* body = {
+* um_gr_id: 1
+* me_text: boas
+* us_id: 1
+* }
+* */
+router.post('/', async function (req, res, mext) {
+    let newObject = req.body
+
+    let messageResult = await creatMessage(newObject.me_text)
+    messageResult = messageResult.data
+    console.log(messageResult)
+
+    let userMessageResult = await creatUserMessage(messageResult.me_id, newObject.us_id)
+    userMessageResult = userMessageResult.data
+    console.log(userMessageResult)
+
+
+
+    let result = await userMessagesGroupsModels.postMessageOfAUserInAGroupCompleted(userMessageResult.um_id, newObject.um_gr_id)
+    console.log(result)
+
+
+    res.status(result.status).send(result.data)
 })
 
 module.exports = router
