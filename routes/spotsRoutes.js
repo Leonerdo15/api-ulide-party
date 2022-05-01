@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 var spotsModel = require('../models/spotsModels');
 const url = require("url");
-const md5 = require("md5");
 
 
 router.get('/', async function (req, res, next) {
@@ -15,6 +14,13 @@ router.get('/:id(\\d+)', async function (req, res, next) {
     let id = req.params.id
 
     let result = await spotsModel.getSpotById(id)
+    res.status(result.status).send(result.data)
+})
+
+router.get('/type/:id(\\d+)', async function (req, res, next) {
+    let id = req.params.id
+
+    let result = await spotsModel.getSpotsByType(id)
     res.status(result.status).send(result.data)
 })
 

@@ -44,6 +44,18 @@ module.exports.getSpotsByArea = async function (lat, long, dist) {
     }
 }
 
+module.exports.getSpotsByType = async function (type_id) {
+    try {
+        let sql = "select * from spots where sp_st_id = $1"
+        let result = await pool.query(sql, [type_id])
+        let spots = result.rows
+        return {status: 200, data: spots}
+    }catch (e) {
+        console.log(e)
+        return {status: 500, data: e}
+    }
+}
+
 module.exports.createSpot = async function (user) {
 
     try {
