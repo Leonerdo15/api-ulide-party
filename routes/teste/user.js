@@ -1,4 +1,4 @@
-const client = require('../database/connection.js')
+const client = require('/database/connection')
 const express = require('express');
 const {log} = require("debug");
 const app = express();

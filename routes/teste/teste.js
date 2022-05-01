@@ -152,8 +152,8 @@
 // server.listen(5000)
 
 
-var today = new Date();
+const today = new Date();
 
-var myToday = new Date(today.getFullYear(), today.getMonth(), today.getDate(), today.getHours(), today.getMinutes(), today.getSeconds());
+const myToday = new Date(today.getFullYear(), today.getMonth(), today.getDate(), today.getHours(), today.getMinutes(), today.getSeconds());
 
 console.log(myToday)
