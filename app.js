@@ -22,11 +22,14 @@ app.use(
 const usersRouter = require('./routes/usersRoutes')
 const spotsRouter = require('./routes/spotsRoutes')
 const userMessagesGroups = require('./routes/userMessageGroupsRoutes')
+const groups = require('./routes/groupsRoutes')
+
 
 
 app.use('/api/users', usersRouter);
 app.use('/api/spots', spotsRouter);
 app.use('/api/userMessagesGroups', userMessagesGroups);
+app.use('/api/groups', groups)
 
 
 
