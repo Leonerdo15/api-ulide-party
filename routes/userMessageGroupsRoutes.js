@@ -45,8 +45,8 @@ router.get('/', async function (req, res, next) {
 })
 
 router.get('/group/:id(\\d+)', async function (req, res, next) {
-    let id = req.params.id
-    let result = await userMessagesGroupsModels.getUserMessageGroupsByGroupId(id)
+    let gr_id = req.params.id
+    let result = await userMessagesGroupsModels.getMessagesOfAGroup(gr_id)
     result = result.data
     console.log(result)
     let store = []
