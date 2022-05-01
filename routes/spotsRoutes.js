@@ -1,8 +1,7 @@
-var express = require('express');
-var router = express.Router();
-var spotsModel = require('../models/spotsModels');
+const express = require('express');
+const router = express.Router();
+const spotsModel = require('../models/spotsModels');
 const url = require("url");
-
 
 router.get('/', async function (req, res, next) {
     console.log("Sending all spots")
@@ -35,6 +34,13 @@ router.get('/area', async function (req, res ,next) {
     let result = await spotsModel.getSpotsByArea(lat, long, dist)
     let user = result.rows
     res.status(result.status).send(result.data)
+})
+
+router.get('/update/:id(\\d+)', async function (req, res, next) {
+    let id = req.params.id
+    let result = await spotsModel.updateViewsById(id)
+    console.log(result.data.rows)
+    res.status(200).send(result.data.rows)
 })
 
 router.post('/', async function (req, res, next) {

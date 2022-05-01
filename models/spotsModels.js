@@ -1,6 +1,4 @@
-var pool = require('../database/connection')
-const md5 = require("md5");
-
+const pool = require('../database/connection');
 
 module.exports.getSpots = async function () {
     try {
@@ -75,19 +73,32 @@ module.exports.createSpot = async function (user) {
 
         query1 = query1.substring(0, query1.length - 2)
         query2 = query2.substring(0, query2.length - 2)
-        query2 += ')'
+        query2 += ') returning *'
 
         let fullQuery = query1+query2
 
-        let result = pool.query(fullQuery)
+        let result = await pool.query(fullQuery);
+        let userResult = result.rows[0];
         console.log(result)
 
-        return {status: 200, data: result}
+        return {status: 200, data: userResult}
     }catch (e) {
         console.log(e)
         return {status: 500, data: e }
     }
 }
+
+module.exports.updateViewsById = async function (id) {
+    try {
+        let sql = 'UPDATE spots SET sp_views = sp_views + 1 WHERE sp_id = $1 returning *'
+        let result = await pool.query(sql, [id])
+        return { status: 200, data: result };
+    }catch (e) {
+        console.log(e);
+        return { status: 500, data: e };
+    }
+}
+
 
 
 module.exports.deleteSpot = async function (id) {
