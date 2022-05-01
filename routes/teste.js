@@ -110,47 +110,50 @@
 
 
 
+//
+//
+// const http = require('http')
+//
+// const server = http.createServer((req, res) => {
+//
+//     if (req.url === '/') {
+//         async function getData(){
+//
+//             var proxyUrl = 'https://cors-anywhere.herokuapp.com/',
+//                 targetUrl = 'https://ulide-party-api.herokuapp.com/api/spots'
+//
+//
+//             const response = await fetch(
+//                 proxyUrl + targetUrl)
+//             const data = await response.json()
+//             console.log(data)
+//             return data
+//
+//         }
+//         async function initMap() {
+//             const json = await getData()
+//             console.log(json)
+//         }
+//
+//         initMap().then(r => {
+//             console.log(r)
+//         })
+//     } else if (req.url === '/about') {
+//         res.end('Here is our short history')
+//     } else {
+//         res.end(`
+//     <h1>Oops!</h1>
+//     <p>We can't seem to find the page you are looking for</p>
+//     <a href="/">back home</a>
+//     `)
+//     }
+// })
+//
+// server.listen(5000)
 
 
-const http = require('http')
+var today = new Date();
 
-const server = http.createServer((req, res) => {
+var myToday = new Date(today.getFullYear(), today.getMonth(), today.getDate(), today.getHours(), today.getMinutes(), today.getSeconds());
 
-    if (req.url === '/') {
-        async function getData(){
-
-            var proxyUrl = 'https://cors-anywhere.herokuapp.com/',
-                targetUrl = 'https://ulide-party-api.herokuapp.com/api/spots'
-
-
-            const response = await fetch(
-                proxyUrl + targetUrl)
-            const data = await response.json()
-            console.log(data)
-            return data
-
-        }
-        async function initMap() {
-            const json = await getData()
-            console.log(json)
-        }
-
-        initMap().then(r => {
-            console.log(r)
-        })
-    } else if (req.url === '/about') {
-        res.end('Here is our short history')
-    } else {
-        res.end(`
-    <h1>Oops!</h1>
-    <p>We can't seem to find the page you are looking for</p>
-    <a href="/">back home</a>
-    `)
-    }
-})
-
-server.listen(5000)
-
-
-
-
+console.log(myToday)
