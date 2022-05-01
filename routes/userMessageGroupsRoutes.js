@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var userMessagesGroupsModels = require('../models/userMensageGroupsModels');
+var userMessagesGroupsModels = require('../models/userMessageGroupsModels');
 const url = require("url");
 
 router.get('/', async function (req, res, next) {
