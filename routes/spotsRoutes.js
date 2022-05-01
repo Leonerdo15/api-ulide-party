@@ -3,12 +3,14 @@ const router = express.Router();
 const spotsModel = require('../models/spotsModels');
 const url = require("url");
 
+/*GET all spots*/
 router.get('/', async function (req, res, next) {
     console.log("Sending all spots")
     let result = await spotsModel.getSpots()
     res.status(result.status).send(result.data)
 })
 
+/*GET a specific spot*/
 router.get('/:id(\\d+)', async function (req, res, next) {
     let id = req.params.id
 
@@ -16,6 +18,9 @@ router.get('/:id(\\d+)', async function (req, res, next) {
     res.status(result.status).send(result.data)
 })
 
+/*GET all spots of a specific type (exp.:   1 -> bar,
+                                            2 -> restaurante ,
+                                            3 -> discoteca)*/
 router.get('/type/:id(\\d+)', async function (req, res, next) {
     let id = req.params.id
 
@@ -23,6 +28,7 @@ router.get('/type/:id(\\d+)', async function (req, res, next) {
     res.status(result.status).send(result.data)
 })
 
+/*GET the spots in a area*/
 router.get('/area', async function (req, res ,next) {
     let queryObject = url.parse(req.url, true).query;
     let lat = queryObject.lat
@@ -36,6 +42,7 @@ router.get('/area', async function (req, res ,next) {
     res.status(result.status).send(result.data)
 })
 
+/*GET a spot asn update the views by 1*/
 router.get('/update/:id(\\d+)', async function (req, res, next) {
     let id = req.params.id
     let result = await spotsModel.updateViewsById(id)
@@ -43,6 +50,7 @@ router.get('/update/:id(\\d+)', async function (req, res, next) {
     res.status(200).send(result.data.rows)
 })
 
+/*POST a new spot*/
 router.post('/', async function (req, res, next) {
     let newUser = req.body
     console.log(newUser)
@@ -50,6 +58,7 @@ router.post('/', async function (req, res, next) {
     res.status(result.status).send(result.data)
 })
 
+/*DELETE a specific spot */
 router.delete('/:id(\\d+)', async function (req, res, next) {
     let id = req.params.id
     let result = await spotsModel.deleteSpot(id)

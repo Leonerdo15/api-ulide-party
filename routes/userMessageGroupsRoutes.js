@@ -3,6 +3,7 @@ var router = express.Router();
 var userMessagesGroupsModels = require('../models/userMessageGroupsModels');
 const url = require("url");
 
+/*GET all message of all groups*/
 router.get('/', async function (req, res, next) {
     console.log("Sending all users")
     let result = await userMessagesGroupsModels.getUserMessageGroups()
@@ -44,6 +45,7 @@ router.get('/', async function (req, res, next) {
     res.status(200).send(store)
 })
 
+/*GET the menssages of a specific group*/
 router.get('/group/:id(\\d+)', async function (req, res, next) {
     let gr_id = req.params.id
     let result = await userMessagesGroupsModels.getMessagesOfAGroup(gr_id)
