@@ -184,7 +184,7 @@ async function getData(){
 
 
     var proxyUrl = 'https://cors-anywhere.herokuapp.com/',
-        targetUrl = 'https://ulide-party-api.herokuapp.com/api/spots'
+        targetUrl = 'https://ulide-party-api.herokuapp.com/api/userMessagesGroups/group/1'
 
 
     const response = await fetch(

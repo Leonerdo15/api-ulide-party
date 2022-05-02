@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JQuery practice</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="messages.js" type="text/javascript"></script>
+
+
+</head>
+<body>
+<style type="text/css">
+    .btn-chat{
+        border:none;
+        text-transform: uppercase;
+        font-size: 20px;
+        position: absolute;
+        bottom: 2%;
+        right: 2%;
+        width: 20%;
+    }
+    #chatbox{
+        display:none;
+        border: 3px solid #f1f1f1;
+        position: absolute;
+        bottom: 2%;
+        right: 2%;
+        z-index: 9;
+    }
+    .form-container{
+        max-width: 300px;
+        padding: 10px;
+        background: white;
+    }
+    .form-container textarea{
+        width: 100%;
+        min-height:200px;
+        border: none;
+        resize: none;
+        padding: 10px;
+        margin: 5px 0 22px 0;
+        background: #f1f1f1;
+        font-size: 15px;
+    }
+    .form-container textarea:focus{
+        background: #ddd;
+        outline: none;
+    }
+    .btn-send, .btn-close{
+        font-size: 18px;
+        margin-bottom: 10px;
+        border: none;
+        width: 100%;
+        opacity: 0.9;
+    }
+    .btn-send,.btn-close,.btn-chat:hover{
+        opacity: 1;
+    }
+    h2{
+        background: blue;
+        color:white;
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+    }
+
+</style>
+
+<div class="container">
+    <button class="btn btn-info btn-chat" type="button" onclick="openChat()">Chat</button>
+
+    <!--   Mensagens-->
+    <div class="text" id="text">
+        <ul class='message' id='message'>
+
+        </ul>
+    </div>
+
+    <!--   Caixa para enviar texto -->
+    <div class="chatbox" id="chatbox">
+        <h2>Message</h2>
+        <form class="form-container" onsubmit="postMessage()">
+            <textarea type="text" placeholder="Type Text.." name="msg" required=""></textarea>
+            <button type="submit" class="btn btn-info btn-lg btn-send">Send</button>
+            <button type="button" class="btn btn-danger btn-lg btn-close" onclick="closeChat()">Close</button>
+        </form>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+
+</script>
+</body>
+</html>
