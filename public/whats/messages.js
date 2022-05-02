@@ -29,7 +29,7 @@ async function getData(){
     return await response.json()
 }
 
-setInterval(removeOld, 10000)
+setInterval(removeOld, 5000)
 // setInterval(messages1, 5000)
 
 
