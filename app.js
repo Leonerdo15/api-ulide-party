@@ -24,7 +24,7 @@ const spotsRouter = require('./routes/spotsRoutes')
 const userMessagesGroups = require('./routes/userMessageGroupsRoutes')
 const groups = require('./routes/groupsRoutes')
 const messages = require('./routes/messagesRoutes')
-const userMessages = require('./routes/usermessagesRoutes')
+const userMessages = require('./routes/userMessagesRoutes')
 
 
 

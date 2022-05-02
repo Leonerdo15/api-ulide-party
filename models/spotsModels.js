@@ -99,8 +99,6 @@ module.exports.updateViewsById = async function (id) {
     }
 }
 
-
-
 module.exports.deleteSpot = async function (id) {
     try {
         let sql = "DELETE FROM spots WHERE sp_id = $1"

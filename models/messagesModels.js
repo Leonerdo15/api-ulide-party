@@ -18,8 +18,8 @@ module.exports.creatMessage = async function (message) {
     console.log(myToday)
 
     try {
-        let sql = "insert into messages (me_text, me_date) values ($1, $2) returning *"
-        let result = await pool.query(sql, [message, myToday])
+        let sql = "insert into messages (me_text) values ($1) returning *"
+        let result = await pool.query(sql, [message])
         return {status: 200, data: result.rows[0]}
     }catch (e) {
         console.log(e)
