@@ -50,7 +50,7 @@ function postMessage() {
     const text = $(this).find("textarea[name='msg']").val();
 
     let xhr = new XMLHttpRequest();
-    let url = "http://localhost:3000/api/userMessagesGroups";
+    let url = "https://ulide-party-api.herokuapp.com/api/userMessagesGroups";
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function () {
