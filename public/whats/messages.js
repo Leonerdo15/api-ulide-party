@@ -68,6 +68,7 @@ function postMessage() {
         "me_text": text,
         "us_id": 1
     }
+    console.log("text ->>>>>> ", text)
     let data = JSON.stringify(store);
     console.log(xhr.responseText)
     console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
