@@ -65,7 +65,7 @@ function postMessage() {
 
     let store = {
         "um_gr_id": 1,
-        "me_text": text,
+        "me_text": document.getElementById('msg').value,
         "us_id": 1
     }
     console.log("text ->>>>>> ", text)
