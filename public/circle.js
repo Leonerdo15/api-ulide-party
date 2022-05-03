@@ -157,8 +157,7 @@ async function getData(){
      *  online version
      *
      * */
-
-    var targetUrl = 'https://ulide-party-api.herokuapp.com/api/spots'
+    const targetUrl = 'https://ulide-party-api.herokuapp.com/api/spots';
 
 
     const response = await fetch(targetUrl)

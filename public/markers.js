@@ -172,28 +172,12 @@ window.initMap = initMap;
 
 
 async function getData(){
+    const targetUrl = 'https://ulide-party-api.herokuapp.com/api/spots';
 
 
-    // var targetUrl = 'https://ulide-party-api.herokuapp.com/api/spots'
-    //
-    //
-    // const response = await fetch(targetUrl)
-    // const data = await response.json()
-    // console.log(data)
-    // return data
-
-
-    var proxyUrl = 'https://cors-anywhere.herokuapp.com/',
-        targetUrl = 'https://ulide-party-api.herokuapp.com/api/userMessagesGroups/group/1'
-
-
-    const response = await fetch(
-        proxyUrl + targetUrl)
+    const response = await fetch(targetUrl)
     const data = await response.json()
     console.log(data)
     return data
-
-
-
 }
 
