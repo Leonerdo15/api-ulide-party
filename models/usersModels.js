@@ -1,4 +1,4 @@
-var pool = require('../database/connection')
+const pool = require('../database/connection');
 const md5 = require("md5");
 
 module.exports.getUsers = async function(){
@@ -19,7 +19,7 @@ module.exports.getUserById = async function(id){
 
     try {
         let sql = "select * from users where us_id = $1"
-        let result = await pool.query(sql, [id])
+        let result = await pool.query(sql, [id.toString()])
         let users = result.rows
         if (users.length > 0){
             console.log(JSON.stringify(users[0]))
@@ -92,9 +92,10 @@ module.exports.saveUsers = async function(user){
 module.exports.deleteUser = async function (id) {
     console.log(JSON.stringify(id));
     try {
-        let sql = "DELETE FROM users WHERE us_id = $1"
+        let sql = "DELETE FROM users WHERE us_id = $1 returning *"
         let result = await pool.query(sql, [id]);
         console.log(result)
+        return  {status: 200, data: result}
     }catch (err) {
         console.log(err)
         return {status: 500, data: err}

@@ -1,11 +1,11 @@
-var express = require('express');
-var path = require('path');
+const express = require('express');
+const path = require('path');
 const bodyParser = require('body-parser')
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var cors = require('cors');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const cors = require('cors');
 
-var app = express();
+const app = express();
 
 app.use(logger('dev'));
 app.use(express.json());

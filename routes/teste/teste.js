@@ -152,8 +152,20 @@
 // server.listen(5000)
 
 
-const today = new Date();
+// const today = new Date();
+//
+// const myToday = new Date(today.getFullYear(), today.getMonth(), today.getDate(), today.getHours(), today.getMinutes(), today.getSeconds());
+//
+// console.log(myToday)
 
-const myToday = new Date(today.getFullYear(), today.getMonth(), today.getDate(), today.getHours(), today.getMinutes(), today.getSeconds());
 
-console.log(myToday)
+const json =  {
+    name:"leo",
+    location: [
+        10,
+        30.1273,
+        40
+    ]
+}
+
+console.log(json.location[1])
