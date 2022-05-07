@@ -8,7 +8,8 @@ const cloudinary = require('cloudinary').v2
 
 
 
-router.post('/save',  function (req,res) {
+router.post('/save/:name',  function (req,res) {
+    let name = req.params.name
     let form = new formidable.IncomingForm();
     console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaa")
     form.parse(req, function (err, fields, files) {
@@ -34,7 +35,7 @@ router.post('/save',  function (req,res) {
 
         cloudinary.uploader.upload(oldpath,
             {
-               public_id: "batata"
+               public_id: name
             },
             function (err, callResult) {
                 console.log(err, callResult)
