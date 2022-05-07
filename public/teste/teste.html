@@ -1,13 +1,148 @@
 <!DOCTYPE html>
 <html>
+<head>
+ <title>Drive API Quickstart</title>
+ <meta charset="utf-8" />
+</head>
 <body>
+<p>Drive API Quickstart</p>
 
-<div>
- <a href="https://www.google.com/" target="_blank">
-  <img src="data:image/jpeg;base64,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"
-  width="60" height="60"/>
- </a>
-</div>
+<!--Add buttons to initiate auth sequence and sign out-->
+<button id="authorize_button" onclick="handleAuthClick()">Authorize</button>
+<button id="signout_button" onclick="handleSignoutClick()">Sign Out</button>
 
+<pre id="content" style="white-space: pre-wrap;"></pre>
+
+<script type="text/javascript">
+ /* exported gapiLoaded */
+ /* exported gisLoaded */
+ /* exported handleAuthClick */
+ /* exported handleSignoutClick */
+
+ // TODO(developer): Set to client ID and API key from the Developer Console
+ const CLIENT_ID = '871505282373-bms6l5tosu6lmh2vulohec1oqfh9aonr.apps.googleusercontent.com';
+ const API_KEY = 'AIzaSyCWAaYbbg4yfxd4e-hOxMO-pPAYn0D4asM';
+
+ // Discovery doc URL for APIs used by the quickstart
+ const DISCOVERY_DOC = 'https://www.googleapis.com/discovery/v1/apis/drive/v3/rest';
+
+ // Authorization scopes required by the API; multiple scopes can be
+ // included, separated by spaces.
+ const SCOPES = 'https://www.googleapis.com/auth/drive.metadata.readonly';
+
+ let tokenClient;
+ let gapiInited = false;
+ let gisInited = false;
+
+ document.getElementById('authorize_button').style.visibility = 'hidden';
+ document.getElementById('signout_button').style.visibility = 'hidden';
+
+ /**
+  * Callback after api.js is loaded.
+  */
+ function gapiLoaded() {
+  gapi.load('client', intializeGapiClient);
+ }
+
+ /**
+  * Callback after the API client is loaded. Loads the
+  * discovery doc to initialize the API.
+  */
+ async function intializeGapiClient() {
+  await gapi.client.init({
+   apiKey: API_KEY,
+   discoveryDocs: [DISCOVERY_DOC],
+  });
+  gapiInited = true;
+  maybeEnableButtons();
+ }
+
+ /**
+  * Callback after Google Identity Services are loaded.
+  */
+ function gisLoaded() {
+  tokenClient = google.accounts.oauth2.initTokenClient({
+   client_id: CLIENT_ID,
+   scope: SCOPES,
+   callback: '', // defined later
+  });
+  gisInited = true;
+  maybeEnableButtons();
+ }
+
+ /**
+  * Enables user interaction after all libraries are loaded.
+  */
+ function maybeEnableButtons() {
+  if (gapiInited && gisInited) {
+   document.getElementById('authorize_button').style.visibility = 'visible';
+  }
+ }
+
+ /**
+  *  Sign in the user upon button click.
+  */
+ function handleAuthClick() {
+  tokenClient.callback = async (resp) => {
+   if (resp.error !== undefined) {
+    throw (resp);
+   }
+   document.getElementById('signout_button').style.visibility = 'visible';
+   document.getElementById('authorize_button').innerText = 'Refresh';
+   await listFiles();
+  };
+
+  if (gapi.client.getToken() === null) {
+   // Prompt the user to select an Google Account and asked for consent to share their data
+   // when establishing a new session.
+   tokenClient.requestAccessToken({prompt: 'consent'});
+  } else {
+   // Skip display of account chooser and consent dialog for an existing session.
+   tokenClient.requestAccessToken({prompt: ''});
+  }
+ }
+
+ /**
+  *  Sign out the user upon button click.
+  */
+ function handleSignoutClick() {
+  const token = gapi.client.getToken();
+  if (token !== null) {
+   google.accounts.oauth2.revoke(token.access_token);
+   gapi.client.setToken('');
+   document.getElementById('content').innerText = '';
+   document.getElementById('authorize_button').innerText = 'Authorize';
+   document.getElementById('signout_button').style.visibility = 'hidden';
+  }
+ }
+
+ /**
+  * Print metadata for first 10 files.
+  */
+ async function listFiles() {
+  let response;
+  try {
+   response = await gapi.client.drive.files.list({
+    'pageSize': 10,
+    'fields': 'files(id, name)',
+   });
+  } catch (err) {
+   document.getElementById('content').innerText = err.message;
+   return;
+  }
+  const files = response.result.files;
+  if (!files || files.length == 0) {
+   document.getElementById('content').innerText = 'No files found.';
+   return;
+  }
+  // Flatten to string to display
+  const output = files.reduce(
+          (str, file) => `${str}${file.name} (${file.id}\n`,
+          'Files:\n');
+  document.getElementById('content').innerText = output;
+ }
+</script>
+<script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
+<script async defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>
 </body>
 </html>

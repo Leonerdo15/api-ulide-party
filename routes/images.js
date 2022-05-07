@@ -4,27 +4,43 @@ const router = express.Router();
 const formidable = require('formidable');
 const fs = require('fs');
 
+const cloudinary = require('cloudinary').v2
+
+
+
 router.post('/save',  function (req,res) {
     let form = new formidable.IncomingForm();
-    console.log("aaaaaaaaaaaaaa")
+    console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaa")
     form.parse(req, function (err, fields, files) {
-        console.log("bbbbbbbbbbbbbbbbbbbb")
-        console.log(req)
-
-        let url = __dirname
-        let newUrl = url.replace("routes", "public/images/spots/")
-
         const oldpath = files.filetoupload.filepath;
-        console.log("testeeeetetetettte")
+        console.log(oldpath)
 
-        const newpath = newUrl + files.filetoupload.originalFilename;
-        console.log(newpath)
-        fs.rename(oldpath, newpath, function (err) {
-            console.log("ccccccccccccccccccccccc")
-            if (err) throw err;
-            res.write('File uploaded and moved!');
-            res.end();
+
+        // const newpath = newUrl + files.filetoupload.originalFilename;
+        // console.log(newpath)
+        // fs.rename(oldpath, newpath, function (err) {
+        //     console.log("ccccccccccccccccccccccc")
+        //     if (err) throw err;
+        //     res.write('File uploaded and moved!');
+        //     res.end();
+        // });
+        cloudinary.config({
+            cloud_name: 'ulide-party',
+            api_key: '757193529144895',
+            api_secret: 'zWOHPeQOb7-ZiQBXHG5STwqITJk'
         });
+
+        // console.log(cloudinary.url(oldpath))
+
+        cloudinary.uploader.upload(oldpath,
+            {
+               public_id: "batata"
+            },
+            function (err, callResult) {
+                console.log(err, callResult)
+            })
+        res.write("batata")
+        res.end()
     });
 })
 
