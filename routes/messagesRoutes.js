@@ -10,12 +10,14 @@ router.get('/:id(\\d+)', async function(req, res, next) {
     res.status(result.status).send(result.data);
 });
 
+/*POST a message*/
 router.post('/', async function (req, res,next) {
     let newMessage = req.body
     let result = await messageModel.creatMessage(newMessage.me_text)
     res.status(result.status).send(result.data)
 })
 
+/*DELETE a specific message */
 router.delete('/:id(\\d+)', async function (req, res, next) {
     let id = req.params.id
     let result = await messageModel.deleteMessage(id)
