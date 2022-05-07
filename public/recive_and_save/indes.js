@@ -18,7 +18,7 @@ http.createServer(function (req, res) {
         // });
     } else {
         res.writeHead(200, {'Content-Type': 'text/html'});
-        res.write('<form action="http://localhost:3000/api/image/save" method="post" enctype="multipart/form-data">');
+        res.write('<form action="https://ulide-party-api.herokuapp.com/api/image/save" method="post" enctype="multipart/form-data">');
         res.write('<input type="file" name="filetoupload"><br>');
         res.write('<input type="submit">');
         res.write('</form>');
