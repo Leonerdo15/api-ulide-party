@@ -8,7 +8,7 @@ const cloudinary = require('cloudinary').v2
 
 
 
-router.post('/save/:name',  function (req,res) {
+router.post('/save',  function (req,res) {
     let name = req.params.name
     let form = new formidable.IncomingForm();
     console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaa")
