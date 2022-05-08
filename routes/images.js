@@ -33,9 +33,13 @@ router.post('/save',  function (req,res) {
 
         // console.log(cloudinary.url(oldpath))
 
+        let imageName = files.filetoupload.originalFilename
+        let position = imageName.indexOf(".")
+        let newImageName = imageName.substring(0, position-1)
+
         cloudinary.uploader.upload(oldpath,
             {
-               public_id: files.filetoupload.originalFilename
+               public_id: newImageName
             },
             function (err, callResult) {
                 console.log(err, callResult)

@@ -6,12 +6,5 @@ cloudinary.config({
     api_secret: 'zWOHPeQOb7-ZiQBXHG5STwqITJk'
 });
 
-console.log(cloudinary.url('vgg1sve8clmj1n6pzowx'))
+console.log(cloudinary.url('moon.png.png'))
 
-cloudinary.uploader.upload('bar-pin.png',
-    {
-        public_id: "batata"
-    },
-    function (err, callResult) {
-        console.log(err, callResult)
-    })
