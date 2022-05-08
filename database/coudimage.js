@@ -6,5 +6,5 @@ cloudinary.config({
     api_secret: 'zWOHPeQOb7-ZiQBXHG5STwqITJk'
 });
 
-console.log(cloudinary.url('moon.png.png'))
+console.log(cloudinary.url('postegresql'))
 

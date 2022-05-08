@@ -44,7 +44,7 @@ router.post('/save',  function (req,res) {
             function (err, callResult) {
                 console.log(err, callResult)
             })
-        res.write("batata")
+        res.write(cloudinary.url(newImageName))
         res.end()
     });
 })
