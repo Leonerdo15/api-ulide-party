@@ -6,5 +6,5 @@ cloudinary.config({
     api_secret: 'zWOHPeQOb7-ZiQBXHG5STwqITJk'
 });
 
-console.log(cloudinary.url('postegresql'))
+console.log(cloudinary.url('spots/postegresql'))
 

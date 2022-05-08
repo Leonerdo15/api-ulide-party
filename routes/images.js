@@ -26,7 +26,7 @@ router.post('/save',  function (req,res) {
 
         cloudinary.uploader.upload(oldpath,
             {
-               public_id: "images/" + newImageName
+               public_id: "spots/" + newImageName
             },
             function (err, callResult) {
                 console.log(err, callResult)
