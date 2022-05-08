@@ -3,20 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="public/javascripts/sendImage.js" type="module"></script>
+
 </head>
     <body>
-        <form action="http://ulide-party-api.herokuapp.com/api/image/save/vaca" method="post" enctype="multipart/form-data"><br>
-            Enter your First Name: <input type="text" id="name"/><br><br>
+        <form action="http://ulide-party-api.herokuapp.com/api/image/save" method="post" enctype="multipart/form-data">
+<!--            <br>-->
+<!--            Enter your First Name: <input type="text" id="name"/><br><br>-->
             <input type="file" name="filetoupload"><br>
-            <input type="submit">
+            <input type="submit" >
         </form>
     </body>
-
-<script>
-    var name = document.getElementById("firstname").value;
-
-    window.location.href = "http://ulide-party-api.herokuapp.com/api/image/save/" + name
-
-</script>
 </html>

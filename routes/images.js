@@ -35,7 +35,7 @@ router.post('/save/:name',  function (req,res) {
 
         cloudinary.uploader.upload(oldpath,
             {
-               public_id: name
+               public_id: files.filetoupload.originalFilename
             },
             function (err, callResult) {
                 console.log(err, callResult)
