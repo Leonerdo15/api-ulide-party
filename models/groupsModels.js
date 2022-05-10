@@ -41,12 +41,23 @@ module.exports.getUsersOfAGroup = async function (id) {
     }
 }
 
-module.exports.createGroup = async function (name) {
+module.exports.createGroup = async function(name) {
     try {
         let sql = "insert into groups (gr_name) values ($1) returning *"
         let result = await pool.query(sql, [name])
         return {status: 200, data: result.rows}
-    }catch (e){
+    }catch(e) {
+        console.log(e)
+        return {status: 500, data: e}
+    }
+}
+
+module.exports.getAllGroups = async function() {
+    try {
+        let sql = "select * from groups"
+        let result = await pool.query(sql)
+        return {status: 200, data: result.rows}
+    } catch(e) {
         console.log(e)
         return {status: 500, data: e}
     }

@@ -37,5 +37,11 @@ router.post('/', async function (req, res, next) {
     res.status(result.status).send(result.data[0])
 })
 
+/*GET all groups*/
+router.get('/', async function (req,res) {
+    let result = await groupsModels.getAllGroups()
+    console.log(result)
+    res.status(result.status).send(result.data)
+})
 
 module.exports = router
