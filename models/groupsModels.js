@@ -63,6 +63,17 @@ module.exports.getAllGroups = async function() {
     }
 }
 
+module.exports.getFriends = async function () {
+    try {
+        let sql = 'select u2.us_name from (select gr_id, gr_name, us_id, us_name from groups inner join user_groups ug on groups.gr_id = ug.ug_gr_id inner join users u on u.us_id = ug.ug_us_id where us_id = 1) friends inner join user_groups on gr_id = user_groups.ug_gr_id inner join users u2 on u2.us_id = user_groups.ug_us_id where u2.us_id != 1 group by u2.us_name'
+        let result = await pool.query(sql)
+        return {status: 200, data: result.rows}
+    } catch(e) {
+        console.log(e)
+        return {status: 500, data: e}
+    }
+}
+
 /**
  * To execute the delete function is necessary to delete others things
  *

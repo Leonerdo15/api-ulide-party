@@ -44,4 +44,11 @@ router.get('/', async function (req,res) {
     res.status(result.status).send(result.data)
 })
 
+/* GET Friends */
+router.get('/', async function (req,res) {
+    let result = await groupsModels.getFriends()
+    console.log(result)
+    res.status(result.status).send(result.data)
+})
+
 module.exports = router
