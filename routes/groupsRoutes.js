@@ -44,9 +44,10 @@ router.get('/', async function (req,res) {
     res.status(result.status).send(result.data)
 })
 
-/* GET Friends */
-router.get('/', async function (req,res) {
-    let result = await groupsModels.getFriends()
+/* GET Friends from a User by id */
+router.get('/friends/users/:id(\\d+)', async function (req,res) {
+    let id = req.params.id
+    let result = await groupsModels.getFriends(id)
     console.log(result)
     res.status(result.status).send(result.data)
 })
