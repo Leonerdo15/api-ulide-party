@@ -31,6 +31,8 @@ const groups = require('./routes/groupsRoutes')
 const messages = require('./routes/messagesRoutes')
 const userMessages = require('./routes/userMessagesRoutes')
 const image = require('./routes/images')
+const tags = require('./routes/tagsRoutes')
+
 
 
 
@@ -43,6 +45,7 @@ app.use('/api/groups', groups)
 app.use('/api/messages', messages)
 app.use('/api/userMessages', userMessages)
 app.use('/api/image', image)
+app.use('/api/tags', tags)
 
 
 
