@@ -45,7 +45,7 @@ router.get('/', async function (req,res) {
 })
 
 /* GET Friends from a User by id */
-router.get('/friends/users/:id(\\d+)', async function (req,res) {
+router.get('/friends/user/:id(\\d+)', async function (req,res) {
     let id = req.params.id
     let result = await groupsModels.getFriends(id)
     console.log(result)
