@@ -110,7 +110,7 @@ module.exports.deleteSpot = async function (id) {
     }
 }
 
-module.exports.getSpotsForList = async function (id) {
+module.exports.getSpotsForListById = async function (id) {
     try {
         let sql = `select sp_id, sp_name, ph_photo_path, avg(se_rate) from photo_spots
                                                                                inner join photos p on p.ph_id = photo_spots.ps_ph_id
@@ -126,7 +126,7 @@ module.exports.getSpotsForList = async function (id) {
     }
 }
 
-module.exports.getSpotsForListById = async function () {
+module.exports.getSpotsForList = async function () {
     try {
         let sql = `select sp_id, sp_name, ph_photo_path, avg(se_rate) from photo_spots
     inner join photos p on p.ph_id = photo_spots.ps_ph_id
