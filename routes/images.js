@@ -8,8 +8,8 @@ const cloudinary = require('cloudinary').v2
 
 
 
-router.post('/save',  function (req,res) {
-
+router.post('/save/:name',  function (req,res) {
+    let name = req.params.name
     cloudinary.config({
         cloud_name: 'ulide-party',
         api_key: '757193529144895',
@@ -26,7 +26,7 @@ router.post('/save',  function (req,res) {
 
         cloudinary.uploader.upload(oldpath,
             {
-               public_id: "spots/" + newImageName
+               public_id: name + "/" + newImageName
             },
             function (err, callResult) {
                 console.log(err, callResult)
