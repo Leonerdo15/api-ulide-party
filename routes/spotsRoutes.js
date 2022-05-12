@@ -50,6 +50,12 @@ router.get('/update/:id(\\d+)', async function (req, res, next) {
     res.status(200).send(result.data.rows)
 })
 
+
+router.get('/listUse', async function (req, res, next) {
+    let result = await spotsModel.getSpotsForList()
+    res.status(result.status).send(result.data)
+})
+
 /*POST a new spot*/
 router.post('/', async function (req, res, next) {
     let newUser = req.body
