@@ -62,6 +62,12 @@ router.get('/type/:id(\\d+)/listUse', async function (req, res, next) {
     res.status(result.status).send(result.data)
 })
 
+router.get('/:id(\\d+)/photo/avg', async function (req, res,next) {
+    let id = req.params.id
+    let result = await spotsModel.getPhotoAndAvgBySpotId(id)
+    res.status(result.status).send(result.data)
+})
+
 /*POST a new spot*/
 router.post('/', async function (req, res, next) {
     let newUser = req.body
