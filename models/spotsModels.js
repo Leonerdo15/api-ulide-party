@@ -15,7 +15,7 @@ module.exports.getSpots = async function () {
 
 module.exports.getSpotById = async function(id){
     try {
-        let sql = "select *, st_x(sp_location) sp_lat, st_y(sp_location) from spots where sp_id = $1"
+        let sql = "select *, st_x(sp_location) sp_lat, st_y(sp_location) sp_long from spots where sp_id = $1"
         let result = await pool.query(sql, [id])
         let spots = result.rows
         if (spots.length > 0){
