@@ -92,7 +92,7 @@ module.exports.updateViewsById = async function (id) {
     try {
         let sql = 'UPDATE spots SET sp_views = sp_views + 1 WHERE sp_id = $1 returning *, st_x(sp_location) sp_lat, st_y(sp_location) sp_long'
         let result = await pool.query(sql, [id])
-        return { status: 200, data: result[0] };
+        return { status: 200, data: result};
     }catch (e) {
         console.log(e);
         return { status: 500, data: e };
