@@ -159,13 +159,16 @@
 // console.log(myToday)
 
 
-const json =  {
-    name:"leo",
-    location: [
-        10,
-        30.1273,
-        40
-    ]
-}
+// const json =  {
+//     name:"leo",
+//     location: [
+//         10,
+//         30.1273,
+//         40
+//     ]
+// }
+//
+// console.log(json.location[1])
 
-console.log(json.location[1])
+import ip from "ip"
+console.dir ( ip.address() );

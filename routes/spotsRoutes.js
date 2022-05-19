@@ -47,7 +47,7 @@ router.get('/update/:id(\\d+)', async function (req, res, next) {
     let id = req.params.id
     let result = await spotsModel.updateViewsById(id)
     console.log(result.data.rows)
-    res.status(200).send(result.data.rows)
+    res.status(200).send(result.data.rows[0])
 })
 
 
