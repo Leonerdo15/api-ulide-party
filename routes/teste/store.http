@@ -2,7 +2,7 @@ GET http://localhost:3000/api/messages/32
 Accept: application/json
 
 ###
-POST http://localhost:3000/api/userMessagesGroups
+POST http://localhost:3000/api/image/save
 Content-Type: application/json
 
 {

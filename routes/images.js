@@ -7,6 +7,25 @@ const fs = require('fs');
 const cloudinary = require('cloudinary').v2
 
 
+router.post('/save',  function (req,res) {
+    let form = new formidable.IncomingForm();
+    form.parse(req, function (err, fields, files) {
+        console.log(req)
+
+        let url = __dirname
+        let newUrl = url.replace("routes", "public\\images\\spots\\")
+
+        const oldpath = files.filetoupload.filepath;
+
+        const newpath = newUrl + files.filetoupload.originalFilename;
+        console.log(newpath)
+        fs.rename(oldpath, newpath, function (err) {
+            if (err) throw err;
+            res.write('File uploaded and moved!');
+            res.end();
+        });
+    });
+})
 
 router.post('/save/:name',  function (req,res) {
     let name = req.params.name
