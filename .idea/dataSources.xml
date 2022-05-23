@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="Ulide Party " uuid="5895dee6-1325-4e51-8fa9-affad6694954">
+    <data-source source="LOCAL" name="Ulide Party" uuid="add42043-6249-487c-b498-eadba278ae44">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
