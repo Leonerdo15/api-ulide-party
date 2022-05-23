@@ -19,8 +19,7 @@ router.post('/save',  function (req,res) {
 
         const newpath = newUrl + files.fileupload.originalFilename;
         console.log(newpath)
-        fs.rename(oldpath, newpath, function (err) {
-            if (err) throw err;
+        fs.rename(oldpath, newpath, function () {
             res.write('File uploaded and moved!');
             res.end();
         });
