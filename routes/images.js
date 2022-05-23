@@ -15,9 +15,9 @@ router.post('/save',  function (req,res) {
         let url = __dirname
         let newUrl = url.replace("routes", "public\\images\\spots\\")
 
-        const oldpath = files.filetoupload.filepath;
+        const oldpath = files.fileupload.filepath;
 
-        const newpath = newUrl + files.filetoupload.originalFilename;
+        const newpath = newUrl + files.fileupload.originalFilename;
         console.log(newpath)
         fs.rename(oldpath, newpath, function (err) {
             if (err) throw err;
