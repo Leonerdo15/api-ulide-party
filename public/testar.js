@@ -3,7 +3,7 @@ $(document).ready(function (e) {
         e.preventDefault();
 
         $.ajax({
-            url: "http://ulide-party-api.herokuapp.com//api/image/save",
+            url: "http://ulide-party-api.herokuapp.com/api/image/save",
             type: "POST",
             data: new FormData(this),
             dataType: 'json',
