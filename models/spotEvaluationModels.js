@@ -2,7 +2,7 @@ const pool = require('../database/connection');
 
 module.exports.getSpotEvaluations = async function (id) {
     try {
-        let sql =  `select * from spot_evaluations where se_sp_id = ${id}`
+        let sql =  `select * from spot_evaluations, date(se_date) where se_sp_id = ${id}`
         let result = await pool.query(sql)
         let evaluations = result.rows
         console.log(evaluations)
