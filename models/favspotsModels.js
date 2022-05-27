@@ -43,10 +43,10 @@ module.exports.creatFavSpot = async function (us_id, spot_id) {
     }
 }
 
-module.exports.deleteFavSpot = async function (id) {
+module.exports.deleteFavSpot = async function (us_id, spot_id) {
     try {
-        let sql = "DELETE FROM fav_spots WHERE fs_id = $1"
-        let result = await pool.query(sql, [id]);
+        let sql = `DELETE FROM fav_spots WHERE fs_sp_id = ${spot_id} and fs_us_id = ${us_id}`
+        let result = await pool.query(sql);
         console.log(result)
         return {status: 200, data: result.rows[0]}
     }catch (err) {

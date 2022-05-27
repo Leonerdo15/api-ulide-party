@@ -23,10 +23,11 @@ router.post('/', async function (req, res, next) {
     res.status(result.status).send(result.data)
 });
 
-router.delete('/:id(\\d+)', async function (req, res, next) {
-    let id = req.params.id
+router.delete('/us_id/:us_id(\\d+)/sp_id/:sp_id(\\d+)', async function (req, res, next) {
+    let us_id = req.params.us_id
+    let sp_id = req.params.sp_id
     console.log("Retrieving user with id " + id);
-    let result = await favSpots.deleteFavSpot(id)
+    let result = await favSpots.deleteFavSpot(us_id, sp_id);
     res.status(200).send("Deleted")
 });
 
