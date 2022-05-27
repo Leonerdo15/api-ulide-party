@@ -9,7 +9,7 @@ router.get('/:id(\\d+)', async function (req, res, next) {
     res.status(result.status).send(result.data);
 });
 
-router.get('/us_id/:us_id/sp_id/:sp_id', async function (req, res, next) {
+router.get('/us_id/:us_id(\\d+)/sp_id/:sp_id(\\d+)', async function (req, res, next) {
     console.log("Sending all favSpots")
     let result = await favSpots.getFavSpotByUsIdAndSpId(req.params.us_id, req.params.sp_id)
     console.log(result)
@@ -23,7 +23,7 @@ router.post('/', async function (req, res, next) {
     res.status(result.status).send(result.data)
 });
 
-router.delete('/us_id/:us_id(\\d+)/sp_id/:sp_id(\\d+)', async function (req, res, next) {
+router.get('/us_id/:us_id(\\d+)/sp_id/:sp_id(\\d+)/delete', async function (req, res, next) {
     let us_id = req.params.us_id
     let sp_id = req.params.sp_id
     let result = await favSpots.deleteFavSpot(us_id, sp_id);
