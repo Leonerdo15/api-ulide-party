@@ -12,7 +12,8 @@ router.get('/:id(\\d+)', async function (req, res, next) {
 router.get('/us_id/:us_id/sp_id/:sp_id', async function (req, res, next) {
     console.log("Sending all favSpots")
     let result = await favSpots.getFavSpotByUsIdAndSpId(req.params.us_id, req.params.sp_id)
-    res.status(result.status).send(result.data[0])
+    console.log(result)
+    res.status(result.status).send(result.data)
 });
 
 router.post('/', async function (req, res, next) {

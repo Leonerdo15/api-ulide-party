@@ -1,3 +1,7 @@
+GET https://ulide-party-api.herokuapp.com/api/favSpots/us_id/2/sp_id/2
+Accept: application/json
+
+###
 POST http://localhost:80/api/item
 Content-Type: application/json
 
