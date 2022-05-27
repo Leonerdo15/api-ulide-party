@@ -1,5 +1,18 @@
 const pool = require('../database/connection');
 
+module.exports.getFavSpot = async function (id) {
+    try {
+        let sql = `select * from fav_spots where fs_id = ${id}`;
+        let result  = await pool.query(sql)
+        let users = result.rows
+        console.log(JSON.stringify(users))
+        return {status: 200, data: users}
+    }catch (err){
+        console.log(err)
+        return { status: 500, data: err };
+    }
+}
+
 module.exports.getFavSpotByUsIdAndSpId = async function(us_id, sp_id){
     try {
         let sql = `select * from fav_spots where fs_sp_id = ${sp_id} and fs_us_id = ${us_id}`;

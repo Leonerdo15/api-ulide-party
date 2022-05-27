@@ -1,18 +1,20 @@
-GET http://localhost:3000/api/messages/32
-Accept: application/json
+POST http://localhost:80/api/item
+Content-Type: application/json
+
+{}
 
 ###
-POST http://localhost:3000/api/image/save
+POST http://localhost:3000/api/favSpots
 Content-Type: application/json
 
 {
-  "us_name": document.getelementbyid("name").value,
-  "me_text": " jhmn n n  hn brefgvvfdg",
-  "us_id": 1
+  "sp_id": 4,
+  "us_id": 2
+
 }
 
 ###
-GET http://localhost:3000/api/userMessagesGroups/group/1
-Accept: application/json
 
-###
+
+
+
