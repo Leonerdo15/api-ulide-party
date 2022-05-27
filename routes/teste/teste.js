@@ -169,25 +169,25 @@
 // }
 //
 // console.log(json.location[1])
-
-//solve linear equations
-let x = nerdamer.solve('(x+1)*3=x-6', 'x');
-console.log(x.toString());
-//quadratic
-let x2 = nerdamer.solve('x^2-8x+15', 'x');
-console.log(x2.toString());
-//quadratic algebraically
-let x3 = nerdamer.solve('x^2-ax+3*b', 'x');
-console.log(x3.toString());
-//multiple roots
-let x4 = nerdamer.solve('x^6+41*x^5+652*x^4+5102*x^3+20581*x^2+40361*x+30030', 'x');
-console.log(x4.toString());
-//functions - numerically around to zero up to a predefined range
-let x5 = nerdamer.solve('cos(x)^2+sin(x-1)', 'x');
-console.log(x5.toString());
-//solve a system of linear equations
-let x6 = nerdamer.solveEquations(['2x+y=7', 'x-y+3z=11', 'y-z=-1']);
-console.log(x6.toString());
-//solve a system of nonlinear equations
-let x7 = nerdamer.solveEquations(['3*x^2/y=2', 'z*x*y-1=35', '5*z^2+7=52']);
-console.log(x7.toString());
+//
+// //solve linear equations
+// let x = nerdamer.solve('(x+1)*3=x-6', 'x');
+// console.log(x.toString());
+// //quadratic
+// let x2 = nerdamer.solve('x^2-8x+15', 'x');
+// console.log(x2.toString());
+// //quadratic algebraically
+// let x3 = nerdamer.solve('x^2-ax+3*b', 'x');
+// console.log(x3.toString());
+// //multiple roots
+// let x4 = nerdamer.solve('x^6+41*x^5+652*x^4+5102*x^3+20581*x^2+40361*x+30030', 'x');
+// console.log(x4.toString());
+// //functions - numerically around to zero up to a predefined range
+// let x5 = nerdamer.solve('cos(x)^2+sin(x-1)', 'x');
+// console.log(x5.toString());
+// //solve a system of linear equations
+// let x6 = nerdamer.solveEquations(['2x+y=7', 'x-y+3z=11', 'y-z=-1']);
+// console.log(x6.toString());
+// //solve a system of nonlinear equations
+// let x7 = nerdamer.solveEquations(['3*x^2/y=2', 'z*x*y-1=35', '5*z^2+7=52']);
+// console.log(x7.toString());
