@@ -82,7 +82,6 @@
 // console.log(JSON.parse(res.getBody()));
 // console.log(jsonArray[0].st_y + " ")
 // module.exports.jsonData = jsonArray
-
 // async function f1(url, data) {
 //     const postData = async (url, data)=>{
 //         console.log(data);
@@ -105,12 +104,6 @@
 //         }
 //     }
 // }
-
-
-
-
-
-//
 //
 // const http = require('http')
 //
@@ -150,15 +143,11 @@
 // })
 //
 // server.listen(5000)
-
-
 // const today = new Date();
 //
 // const myToday = new Date(today.getFullYear(), today.getMonth(), today.getDate(), today.getHours(), today.getMinutes(), today.getSeconds());
 //
 // console.log(myToday)
-
-
 // const json =  {
 //     name:"leo",
 //     location: [
