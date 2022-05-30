@@ -1,4 +1,19 @@
-GET https://ulide-party-api.herokuapp.com/api/favSpots/us_id/2/sp_id/2
+GET https://ulide-party-api.herokuapp.com/api/spotEvaluations/us_id/1/sp_id/1
+Accept: application/json
+
+###
+POST https://ulide-party-api.herokuapp.com/api/spotEvaluations
+Content-Type: application/json
+
+{
+  "se_rate": "5",
+  "se_comment": "Coentrada",
+  "sp_id": "1",
+  "us_id": "1"
+}
+
+###
+DELETE https://ulide-party-api.herokuapp.com/api/spotEvaluations/6
 Accept: application/json
 
 ###

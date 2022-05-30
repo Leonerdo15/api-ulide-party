@@ -24,10 +24,10 @@ router.get('/us_id/:us_id(\\d+)/sp_id/:sp_id(\\d+)', async function (req, res, n
 router.post('/', async function (req, res, next) {
     let se_rate = req.body.se_rate
     let se_comment = req.body.se_comment
-    let se_sp_id = req.body.se_sp_id
-    let se_us_id = req.body.se_us_id
+    let sp_id = req.body.sp_id
+    let us_id = req.body.us_id
 
-    let result = await spotEvaluations.createSpotEvaluation(se_rate, se_comment, se_sp_id, se_us_id)
+    let result = await spotEvaluations.createSpotEvaluation(se_rate, se_comment, sp_id, us_id)
     res.status(result.status).send(result.data)
 })
 
