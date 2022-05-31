@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="Ulide Party API" uuid="82344f2c-4776-41f3-b100-a63f04d2a769">
+    <data-source source="LOCAL" name="Ulide Party" uuid="2197f0d4-54a4-4697-b8fd-b1cb36b991e3">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://ec2-54-228-125-183.eu-west-1.compute.amazonaws.com/dbhrosptinttsp</jdbc-url>
+      <jdbc-url>jdbc:postgresql://ec2-54-228-125-183.eu-west-1.compute.amazonaws.com:5432/dbhrosptinttsp</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>
