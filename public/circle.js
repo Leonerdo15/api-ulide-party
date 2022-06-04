@@ -1,6 +1,3 @@
-import ip from "ip"
-console.dir (ip.address());
-
 const citymap = {
     lisboa: {
         center: { lat: 38.736946, lng: -9.142685 },

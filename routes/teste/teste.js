@@ -180,3 +180,36 @@
 // //solve a system of nonlinear equations
 // let x7 = nerdamer.solveEquations(['3*x^2/y=2', 'z*x*y-1=35', '5*z^2+7=52']);
 // console.log(x7.toString());
+
+
+let car = []
+
+let test = [{
+    "st_x": -46.6,
+    "st_y": -23.5,},
+    {
+        "st_x": 46.6,
+        "st_y": 23.5,}
+    ]
+
+let test1 = [
+    {
+        "st_x": "Coelho",
+        "st_y": "Coentrada",}
+]
+
+let test2 = []
+
+for (let i = 0; i < Object.keys(test).length; i++) {
+    car.push(test[i])
+}
+
+for (let i = 0; i < Object.keys(test1).length; i++) {
+    car.push(test1[i])
+}
+
+for (let i = 0; i < Object.keys(test2).length; i++) {
+    car.push(test2[i])
+}
+
+console.log(JSON.stringify(car))
