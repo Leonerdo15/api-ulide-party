@@ -112,11 +112,13 @@ module.exports.deleteSpot = async function (id) {
 
 module.exports.getSpotsForListById = async function (id) {
     try {
-        let sql = `select sp_id, sp_name, ph_photo_path, avg(se_rate) from photo_spots
-                                                                               inner join photos p on p.ph_id = photo_spots.ps_ph_id
-                                                                               inner join spots s on s.sp_id = photo_spots.ps_sp_id inner join spot_evaluations se on s.sp_id = se.se_sp_id
+        let sql = `select  sp_name, ph_photo_path, COALESCE(avg(se_rate),0)from photo_spots
+                                                                                    inner join photos p on p.ph_id = photo_spots.ps_ph_id
+                                                                                    inner join spots s on s.sp_id = photo_spots.ps_sp_id
+                                                                                    full outer join spot_evaluations se on s.sp_id = se.se_sp_id
                    where sp_st_id = ${id}
-                   group by ph_photo_path, sp_name, sp_id order by avg(se_rate) desc`
+                   group by sp_name, ph_photo_path
+                   order by avg(se_rate) desc;`
 
         let result = await pool.query(sql)
         return {status: 200, data: result.rows}
