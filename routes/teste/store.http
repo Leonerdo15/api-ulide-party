@@ -1,8 +1,4 @@
-GET http://localhost:8080/api/spot
-Accept: application/json
-
-###
-GET http://localhost:8080/api/spots/type/3/listUse
+GET http://localhost:8080/api/favSpots/us_id/1
 Accept: application/json
 
 ###
