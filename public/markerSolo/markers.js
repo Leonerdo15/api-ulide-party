@@ -134,12 +134,7 @@ async function initMap() {
         zoom: 15,
         center: myLatlng,
         styles: styles_map,
-        // hide: [
-        //     {
-        //         featureType: "all",
-        //         stylers: [{ visibility: "off" }],
-        //     },
-        // ],
+
     }
     var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
@@ -169,7 +164,7 @@ window.initMap = initMap;
 
 
 async function getData(){
-    const targetUrl = 'https://ulide-party-api.herokuapp.com/api/spots/2';
+    const targetUrl = 'https://ulide-party-api.herokuapp.com/api/spots/3';
 
 
     const response = await fetch(targetUrl)
