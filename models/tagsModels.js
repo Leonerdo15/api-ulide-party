@@ -1,5 +1,16 @@
 const pool = require('../database/connection');
 
+module.exports.getAllTags = async function () {
+    try {
+        let sql = `select tg_id, tg_name from tags`
+        let result = await pool.query(sql)
+        return{status: 200 ,data: result.rows}
+    }catch (e) {
+        console.log(e)
+        return {status: 500, data: e}
+    }
+}
+
 module.exports.getTagsOfSpot = async function (id) {
     try {
         let sql = `select tg_id, tg_name from users_spots_tags
