@@ -198,18 +198,25 @@ let test1 = [
         "st_y": "Coentrada",}
 ]
 
-let test2 = []
+// let test2 = []
+//
+// for (let i = 0; i < Object.keys(test).length; i++) {
+//     car.push(test[i])
+// }
+//
+// for (let i = 0; i < Object.keys(test1).length; i++) {
+//     car.push(test1[i])
+// }
+//
+// for (let i = 0; i < Object.keys(test2).length; i++) {
+//     car.push(test2[i])
+// }
+//
+// console.log(JSON.stringify(car))
 
-for (let i = 0; i < Object.keys(test).length; i++) {
-    car.push(test[i])
-}
+// for (let i = 0; i < 6; i++) {
+//     console.log(i)
+// }
 
-for (let i = 0; i < Object.keys(test1).length; i++) {
-    car.push(test1[i])
-}
-
-for (let i = 0; i < Object.keys(test2).length; i++) {
-    car.push(test2[i])
-}
-
-console.log(JSON.stringify(car))
+let resultado = (false)?1:2;
+console.log(resultado)

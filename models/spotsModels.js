@@ -118,7 +118,7 @@ module.exports.getSpotsForListById = async function (id) {
                                                                                     full outer join spot_evaluations se on s.sp_id = se.se_sp_id
                    where sp_st_id = ${id}
                    group by sp_name, ph_photo_path, sp_id
-                   order by avg(se_rate) desc;`
+                   order by avg(se_rate) asc ;`
 
         let result = await pool.query(sql)
         return {status: 200, data: result.rows}
