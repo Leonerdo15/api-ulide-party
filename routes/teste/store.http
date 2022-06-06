@@ -1,3 +1,11 @@
+GET http://localhost:8080/api/spot
+Accept: application/json
+
+###
+GET http://localhost:8080/api/spots/type/3/listUse
+Accept: application/json
+
+###
 GET https://ulide-party-api.herokuapp.com/api/spotEvaluations/us_id/1/sp_id/1
 Accept: application/json
 

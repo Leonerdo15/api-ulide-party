@@ -9,6 +9,13 @@ router.get('/:id(\\d+)', async function (req, res, next) {
     res.status(result.status).send(result.data);
 });
 
+router.get('/us_id/:id(\\d+)', async function (req, res, next) {
+    let id = req.params.id;
+    console.log("Retrieving user with id " + id);
+    let result = await favSpots.getFavSpotBySpId(id);
+    res.status(result.status).send(result.data);
+});
+
 router.get('/us_id/:us_id(\\d+)/sp_id/:sp_id(\\d+)', async function (req, res, next) {
     console.log("Sending all favSpots")
     let result = await favSpots.getFavSpotByUsIdAndSpId(req.params.us_id, req.params.sp_id)
