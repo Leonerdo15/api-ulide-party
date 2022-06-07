@@ -34,6 +34,7 @@ const image = require('./routes/images')
 const tags = require('./routes/tagsRoutes')
 const spotEvaluations = require('./routes/spotEvaluationsRoutes')
 const favSpots = require('./routes/favSpotsRoutes')
+const ph = require('./routes/photoRoutes')
 
 
 
@@ -50,6 +51,7 @@ app.use('/api/image', image)
 app.use('/api/tags', tags)
 app.use('/api/spotEvaluations', spotEvaluations)
 app.use("/api/favSpots", favSpots)
+app.use("/api/photo", ph)
 
 
 
