@@ -25,7 +25,7 @@ router.post('/save/:name',  async function (req,res) {
         let position = imageName.indexOf(".")
         let newImageName = imageName.substring(0, position)
 
-        // let photoStore = await photo.createPhoto(newImageName)
+        let photoStore = await photo.createPhoto(newImageName)
         // let photoId = photoStore.rows[0].ph_id
         // console.log(photoId.ph_id)
         let phSp = await photo.createPhotoSpot(14, 20)
