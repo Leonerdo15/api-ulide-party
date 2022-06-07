@@ -18,7 +18,7 @@ module.exports.getUserMessageGroups = async function () {
 
 module.exports.getMessagesOfAGroup = async function (id) {
     try {
-        let sql = `select me_date from user_message_groups umg
+        let sql = `select * from user_message_groups umg
                     inner join groups on gr_id = umg.umg_gr_id
                     inner join user_messages um on umg.umg_um_id = um.um_id
                     inner join messages on um.um_me_id = me_id
