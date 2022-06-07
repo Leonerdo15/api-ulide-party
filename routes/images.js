@@ -8,8 +8,9 @@ const photo = require("../models/photoModels");
 
 const cloudinary = require('cloudinary').v2
 
-router.post('/save/:name',  async function (req,res) {
+router.post('/save/:name/:id',  async function (req,res) {
     let name = req.params.name
+    let id = req.params.id
     let spot = req.body
     cloudinary.config({
         cloud_name: 'ulide-party',
@@ -32,7 +33,7 @@ router.post('/save/:name',  async function (req,res) {
         let photoId = photoStore.data.ph_id
         console.log(photoId, "photoStore")
 
-        let phSp = await photo.createPhotoSpot(photoId, spot.id)
+        let phSp = await photo.createPhotoSpot(photoId, id)
         console.log(phSp)
 
         cloudinary.uploader.upload(oldpath,
