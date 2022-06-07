@@ -1,4 +1,4 @@
-POST http://localhost:8080/api/photo/saveall/14/20
+POST http://localhost:8080/api/photo/save/asdjhabsd
 Content-Type: application/json
 
 {
