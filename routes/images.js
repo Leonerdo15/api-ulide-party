@@ -37,7 +37,8 @@ router.post('/save/:name',  async function (req,res) {
             function (err, callResult) {
                 console.log(err, callResult)
             })
-        res.status(200).send("ok")
+        res.setHeader("Location", "https://ulideparty.herokuapp.com/");
+        res.end();
     });
 })
 
