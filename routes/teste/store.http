@@ -1,4 +1,4 @@
-POST http://localhost:8080/api/photo/save/ola
+POST http://localhost:8080/api/photo/saveall/14/20
 Content-Type: application/json
 
 {
