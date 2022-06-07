@@ -153,10 +153,11 @@ module.exports.getSpotsForListById = async function (id) {
 
 module.exports.getPhotoAndAvgBySpotId = async function (id) {
     try {
-        let sql = `select ph_photo_path, avg(se_rate), count(se_rate) from photo_spots inner join photos p on photo_spots.ps_ph_id = p.ph_id
-    inner join spots s on s.sp_id = photo_spots.ps_sp_id
-    inner join spot_evaluations se on sp_id = se_sp_id
-where ps_sp_id = ${id} group by ph_photo_path`
+        let sql = `select ph_photo_path, COALESCE(avg(se_rate),0) avg, count(se_rate)from photo_spots inner join photos p on photo_spots.ps_ph_id = p.ph_id
+                                                                                                      inner join spots s on s.sp_id = photo_spots.ps_sp_id
+                                                                                                      full outer join spot_evaluations se on sp_id = se_sp_id
+                   where ps_sp_id = ${id}
+                   group by ph_photo_path`
         let result = await pool.query(sql)
         return {status:200, data: result.rows}
     }catch (e) {
