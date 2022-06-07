@@ -99,6 +99,29 @@ module.exports.updateViewsById = async function (id) {
     }
 }
 
+
+module.exports.updateSpotById = async function (id, spot) {
+    try {
+        let sql = 'UPDATE spots SET '
+        let query2 = ' WHERE sp_id = $1 returning *, st_x(sp_location) sp_lat, st_y(sp_location) sp_long'
+
+        for (let i = 0; i < Object.keys(spot).length; i++) {
+
+            sql += `${Object.keys(spot)[i]} = ${ "'" + spot[Object.keys(spot)[i]] + "', " }`
+
+        }
+
+        sql = sql.substring(0, sql.length - 2)
+        sql += query2
+
+        let result = await pool.query(sql, [id])
+        return {status: 200, data: result.rows}
+    }catch (e) {
+        console.log(e)
+        return {status: 500, data: e}
+    }
+}
+
 module.exports.deleteSpot = async function (id) {
     try {
         let sql = "DELETE FROM spots WHERE sp_id = $1"
