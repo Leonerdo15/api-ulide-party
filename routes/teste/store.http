@@ -1,3 +1,12 @@
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+    "us_name": "test",
+    "us_password": "test"
+}
+
+###
 GET http://localhost:8080/api/tags
 Accept: application/json
 

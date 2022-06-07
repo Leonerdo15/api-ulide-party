@@ -27,6 +27,8 @@ module.exports.creatMessage = async function (message) {
     }
 }
 
+
+
 module.exports.deleteMessage = async function (id) {
     try {
         let sql = "delete from messages where me_id = $1 returning *"
