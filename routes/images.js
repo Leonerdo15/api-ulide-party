@@ -29,7 +29,6 @@ router.post('/save/:name',  async function (req,res) {
         console.log(photoStore)
         console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
         let photoId = photoStore.ph_id
-        console.log(photoId.ph_id)
         let phSp = await photo.createPhotoSpot(photoId, 20)
         console.log(phSp)
 
