@@ -26,9 +26,12 @@ router.post('/save/:name',  async function (req,res) {
         let newImageName = imageName.substring(0, position)
 
         let photoStore = await photo.createPhoto("batata")
+        console.log(photoStore)
+        console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
         // let photoId = photoStore.rows[0].ph_id
         // console.log(photoId.ph_id)
         let phSp = await photo.createPhotoSpot(14, 20)
+        console.log(phSp)
 
         cloudinary.uploader.upload(oldpath,
             {
