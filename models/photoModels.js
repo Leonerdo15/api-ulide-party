@@ -28,9 +28,9 @@ module.exports.createPhoto = async function (photo) {
 
 module.exports.createPhotoSpot = async function (ph_id, sp_id) {
 try {
-        let sql = `insert into photo_spots (ps_ph_id, ps_sp_id, ps_us_id) values (${ph_id}, ${sp_id}, 1) returning *`
+        let sql = `insert into photo_spots (ps_ph_id, ps_sp_id, ps_us_id) values ('${ph_id}', '${sp_id}', 1) returning *`
         let result = await pool.query(sql)
-        return {status: 200, data: result}
+        return {status: 200, data: result.rows[0]}
     }catch (e) {
         console.log(e)
         return {status: 500, data: e}
