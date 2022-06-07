@@ -32,7 +32,7 @@ router.post('/save/:name',  async function (req,res) {
         let photoId = photoStore.data.ph_id
         console.log(photoId, "photoStore")
 
-        let phSp = await photo.createPhotoSpot(photoId, 20)
+        let phSp = await photo.createPhotoSpot(photoId, spot.id)
         console.log(phSp)
 
         cloudinary.uploader.upload(oldpath,
@@ -42,7 +42,7 @@ router.post('/save/:name',  async function (req,res) {
             function (err, callResult) {
                 console.log(err, callResult)
             })
-        res.status(200).send("well done");
+        res.status(200).send("Estou farto disto. Nem sou cristao mas Deus ajuda meu pai. sarava!!!!");
         res.end();
     });
 })
