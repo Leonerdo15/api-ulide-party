@@ -11,6 +11,12 @@ router.get('/', async function (req, res, next) {
     res.status(result.status).send(result.data)
 })
 
+router.get('/:name', async function (req, res, next) {
+    let name = req.params.name
+    let result = await usersModel.getUserByName(name)
+    res.status(result.status).send(result.data)
+})
+
 /* GET a specific users */
 router.get('/:id(\\d+)', async function(req, res, next) {
     let id = req.params.id;

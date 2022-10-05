@@ -217,6 +217,7 @@ let test1 = [
 // for (let i = 0; i < 6; i++) {
 //     console.log(i)
 // }
+let nome = "leo"
+console.log(`Ola sou o ${nome}, prazer em conhecer-te`)
 
-let resultado = (false)?1:2;
-console.log(resultado)
+let numb = 3
