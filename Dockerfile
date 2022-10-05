@@ -1,12 +1,8 @@
 FROM node:lts
-
-WORKDIR /usr/src/app
-
-COPY package.json /usr/src/app
-RUN npm install --quiet
-
-COPY . /usr/src/app
-
+RUN mkdir -p /home/node/app/node_modules && -R node:node /home/node/app
+WORKDIR /home/node/app
+COPY package*.json  ./
+RUN npm install
+COPY --chown=node:node . .
 EXPOSE 8080
-
-CMD [ "node", "src/server.js" ]
+CMD [ "node", "app.js" ]
