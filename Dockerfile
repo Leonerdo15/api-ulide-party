@@ -1,8 +1,12 @@
 FROM node:lts
 
 WORKDIR /home/felipe/api-ulide-party
-COPY package*.json  ./
+
+COPY package*.json ./
 RUN npm install
+
 COPY . .
+
 EXPOSE 8080
-CMD [ "node", "start" ]
+
+CMD ["node", "start"]
