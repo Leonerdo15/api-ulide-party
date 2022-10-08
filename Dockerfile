@@ -1,7 +1,5 @@
 FROM node:alpine
 
-RUN mkdir -p /home/felipe/api-ulide-party
-
 WORKDIR /home/felipe/api-ulide-party
 
 COPY package*.json ./
