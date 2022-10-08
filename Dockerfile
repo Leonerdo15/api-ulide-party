@@ -1,6 +1,6 @@
 FROM node:alpine
 
-WORKDIR /home/felipe/api-ulide-party
+WORKDIR /node/api-ulide-party
 
 COPY package*.json ./
 
@@ -10,4 +10,4 @@ COPY . .
 
 EXPOSE 3000
 
-CMD ["node", "start"]
+CMD ["npm", "start"]
