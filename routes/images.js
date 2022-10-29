@@ -1,17 +1,19 @@
 const express = require('express');
 const router = express.Router();
-const spotsModel = require('../models/spotsModels');
-
 const formidable = require('formidable');
-const fs = require('fs');
 const photo = require("../models/photoModels");
+const allPhotos = require("../models/allPhotosModels");
+const url = require("url");
 
 const cloudinary = require('cloudinary').v2
 
-router.post('/save/:name/:id',  async function (req,res) {
-    let name = req.params.name
-    let id = req.params.id
-    let spot = req.body
+router.post('/save',  async function (req,res) {
+    let queryObject = url.parse(req.url, true).query;
+    let fileName = queryObject.us_name
+    let spotsId = queryObject.us_name
+    let userId = queryObject.us_name
+
+    // cloudinary credentials
     cloudinary.config({
         cloud_name: 'ulide-party',
         api_key: '757193529144895',
@@ -26,19 +28,13 @@ router.post('/save/:name/:id',  async function (req,res) {
         let position = imageName.indexOf(".")
         let newImageName = imageName.substring(0, position)
 
-        let photoStore = await photo.createPhoto(newImageName)
-        console.log(photoStore.data)
-        console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-        console.log(photoStore, "photoStore")
-        let photoId = photoStore.data.ph_id
-        console.log(photoId, "photoStore")
 
-        let phSp = await photo.createPhotoSpot(photoId, id)
-        console.log(phSp)
+        let photoStore = await allPhotos.createPhoto(spotsId, userId)
+
 
         cloudinary.uploader.upload(oldpath,
             {
-                public_id: name + "/" + newImageName
+                public_id: fileName + "/" + photoStore.id
             },
             function (err, callResult) {
                 console.log(err, callResult)

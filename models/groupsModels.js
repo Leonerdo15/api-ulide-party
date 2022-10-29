@@ -32,7 +32,7 @@ module.exports.getUsersOfAGroup = async function (id) {
 
     try {
         let sql = "select * from user_groups inner join users u on u.us_id = user_groups.ug_us_id" +
-            "         where ug_gr_id = " + id
+            " where ug_gr_id = " + id
         let result = await pool.query(sql)
         return {status: 200, data: result.rows}
     }catch (e) {
