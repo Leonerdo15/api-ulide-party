@@ -33,20 +33,13 @@ module.exports.getUserByUsName = async function (name) {
     }
 }
 
-module.exports.getUserById = async function(id){
-    console.log(JSON.stringify(id))
-
+module.exports.getUserById = async function (id) {
     try {
-        let sql = "select * from users where us_id = $1"
-        let result = await pool.query(sql, [id.toString()])
-        let users = result.rows
-        if (users.length > 0){
-            console.log(JSON.stringify(users[0]))
-            return {status: 200, data:users[0]}
-        } else {
-            return {status: 404, data: users[0]}
-        }
-    } catch (err){
+        let sql = "SELECT * FROM users WHERE us_id = $1"
+        let result = await pool.query(sql, [id]);
+        let user = result.rows[0]
+        return  {status: 200, data: user}
+    }catch (err) {
         console.log(err)
         return {status: 500, data: err}
     }

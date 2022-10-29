@@ -11,12 +11,6 @@ router.get('/', async function (req, res, next) {
     res.status(result.status).send(result.data)
 })
 
-router.get('/:name', async function (req, res, next) {
-    let name = req.params.name
-    let result = await usersModel.getUserByUsName(name)
-    res.status(result.status).send(result.data)
-})
-
 /* GET a specific users */
 router.get('/:id(\\d+)', async function(req, res, next) {
     let id = req.params.id;
@@ -24,6 +18,13 @@ router.get('/:id(\\d+)', async function(req, res, next) {
     let result = await usersModel.getUserById(id);
     res.status(result.status).send(result.data);
 });
+
+
+router.get('/:name', async function (req, res, next) {
+    let name = req.params.name
+    let result = await usersModel.getUserByUsName(name)
+    res.status(result.status).send(result.data)
+})
 
 /*GET login authentication*/
 router.get('/login', async function (req, res ,next) {
