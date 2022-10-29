@@ -1,12 +1,13 @@
-FROM node:lts
+FROM node:alpine
 
-WORKDIR /home/felipe/api-ulide-party
+WORKDIR /node/api-ulide-party
 
 COPY package*.json ./
+
 RUN npm install
 
 COPY . .
 
-EXPOSE 8080
+EXPOSE 3000
 
-CMD ["node", "start"]
+CMD ["npm", "start"]
