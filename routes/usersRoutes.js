@@ -13,7 +13,7 @@ router.get('/', async function (req, res, next) {
 
 router.get('/:name', async function (req, res, next) {
     let name = req.params.name
-    let result = await usersModel.getUserByName(name)
+    let result = await usersModel.getUserByUsName(name)
     res.status(result.status).send(result.data)
 })
 
