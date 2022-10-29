@@ -19,15 +19,9 @@ router.get('/:id(\\d+)', async function(req, res, next) {
     res.status(result.status).send(result.data);
 });
 
-
-router.get('/:name', async function (req, res, next) {
-    let name = req.params.name
-    let result = await usersModel.getUserByUsName(name)
-    res.status(result.status).send(result.data)
-})
-
 /*GET login authentication*/
 router.get('/login', async function (req, res ,next) {
+    console.log("Login authentication")
     let queryObject = url.parse(req.url, true).query;
     let name = queryObject.us_name
     let password = md5(queryObject.us_password)

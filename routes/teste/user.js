@@ -39,7 +39,6 @@ const getUserById = (req, res) => {
 const getLoginAuthentication = (req, res) => {
   const queryObject = url.parse(req.url, true).query;
   console.log(queryObject.us_name)
-  console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
   console.log(Object.keys(queryObject)[0])
 
   let query = `SELECT us_id FROM users`
