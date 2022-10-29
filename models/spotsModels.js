@@ -133,24 +133,6 @@ module.exports.deleteSpot = async function (id) {
     }
 }
 
-// module.exports.getSpotsForListById = async function (id) {
-//     try {
-//         let sql = `select  sp_id, sp_name, ph_photo_path, COALESCE(avg(se_rate),0) avg from photo_spots
-//                                                                                     inner join photos p on p.ph_id = photo_spots.ps_ph_id
-//                                                                                     inner join spots s on s.sp_id = photo_spots.ps_sp_id
-//                                                                                     full outer join spot_evaluations se on s.sp_id = se.se_sp_id
-//                    where sp_st_id = ${id}
-//                    group by sp_name, ph_photo_path, sp_id
-//                    order by avg(se_rate) asc ;`
-//
-//         let result = await pool.query(sql)
-//         return {status: 200, data: result.rows}
-//     }catch (e) {
-//         console.log(e)
-//         return {status: 500, data: e}
-//     }
-// }
-
 module.exports.getSpotsForListById = async function (id) {
     try {
         let sql = `select  sp_id, sp_name, ph_name, COALESCE(avg(se_rate),0) avg from all_photos
