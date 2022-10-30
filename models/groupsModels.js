@@ -17,17 +17,6 @@ module.exports.getGroupsOfAUser = async function (id) {
     }
 }
 
-module.exports.getGroupById = async function (id) {
-    try {
-        let sql = "select * from groups where gr_id = $1"
-        let result = await pool.query(sql, [id])
-        return{status: 200, data: result.rows}
-    }catch (e) {
-        console.log(e)
-        return {status: 500, data: e}
-    }
-}
-
 module.exports.getUsersOfAGroup = async function (id) {
 
     try {

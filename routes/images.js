@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const formidable = require('formidable');
-const photo = require("../models/photoModels");
 const allPhotos = require("../models/allPhotosModels");
 const url = require("url");
 

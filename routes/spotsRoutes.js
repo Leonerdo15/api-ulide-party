@@ -18,17 +18,7 @@ router.get('/:id(\\d+)', async function (req, res, next) {
     res.status(result.status).send(result.data)
 })
 
-/*GET all spots of a specific type (exp.:   1 -> bar,
-                                            2 -> restaurante ,
-                                            3 -> discoteca)*/
-router.get('/type/:id(\\d+)', async function (req, res, next) {
-    let id = req.params.id
-
-    let result = await spotsModel.getSpotsByType(id)
-    res.status(result.status).send(result.data)
-})
-
-/*GET the spots in a area*/
+/*GET the spots in designated area*/
 router.get('/area', async function (req, res ,next) {
     let queryObject = url.parse(req.url, true).query;
     let lat = queryObject.lat
@@ -48,12 +38,6 @@ router.get('/update/:id(\\d+)', async function (req, res, next) {
     let result = await spotsModel.updateViewsById(id)
     console.log(result.data.rows)
     res.status(200).send(result.data.rows[0])
-})
-
-
-router.get('/listUse', async function (req, res, next) {
-    let result = await spotsModel.getSpotsForList()
-    res.status(result.status).send(result.data)
 })
 
 router.get('/type/:id(\\d+)/listUse', async function (req, res, next) {

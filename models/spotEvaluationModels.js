@@ -12,17 +12,6 @@ module.exports.getSpotEvaluations = async function (id) {
     }
 }
 
-module.exports.getSpotEvaluationsBySpIdAndUsId = async function (us_id, sp_id) {
-    try {
-        let sql =  `select se_rate, se_comment from spot_evaluations inner join users u on spot_evaluations.se_us_id = u.us_id where se_sp_id = ${sp_id} and se_us_id = ${us_id}`
-        let result = await pool.query(sql)
-        let evaluations = result.rows
-        return {status: 200, data: evaluations}
-    }catch (e) {
-        console.log(e)
-        return {status: 500, data: e}
-    }
-}
 
 module.exports.createSpotEvaluation = async function (se_rate, se_comment, se_sp_id, se_us_id) {
 try {

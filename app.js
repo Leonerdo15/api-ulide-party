@@ -29,12 +29,10 @@ const spotsRouter = require('./routes/spotsRoutes')
 const userMessagesGroups = require('./routes/userMessageGroupsRoutes')
 const groups = require('./routes/groupsRoutes')
 const messages = require('./routes/messagesRoutes')
-const userMessages = require('./routes/userMessagesRoutes')
 const image = require('./routes/images')
 const tags = require('./routes/tagsRoutes')
 const spotEvaluations = require('./routes/spotEvaluationsRoutes')
 const favSpots = require('./routes/favSpotsRoutes')
-const ph = require('./routes/photoRoutes')
 
 
 
@@ -46,12 +44,11 @@ app.use('/api/spots', spotsRouter);
 app.use('/api/userMessagesGroups', userMessagesGroups);
 app.use('/api/groups', groups)
 app.use('/api/messages', messages)
-app.use('/api/userMessages', userMessages)
 app.use('/api/image', image)
 app.use('/api/tags', tags)
 app.use('/api/spotEvaluations', spotEvaluations)
 app.use("/api/favSpots", favSpots)
-app.use("/api/photo", ph)
+
 
 
 

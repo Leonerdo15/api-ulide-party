@@ -2,13 +2,6 @@ const express = require('express');
 const router = express.Router();
 const favSpots = require('../models/favspotsModels');
 
-router.get('/:id(\\d+)', async function (req, res, next) {
-    let id = req.params.id;
-    console.log("Retrieving user with id " + id);
-    let result = await favSpots.getFavSpot(id);
-    res.status(result.status).send(result.data);
-});
-
 router.get('/us_id/:id(\\d+)', async function (req, res, next) {
     let id = req.params.id;
     console.log("Retrieving user with id " + id);

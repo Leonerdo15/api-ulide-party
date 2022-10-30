@@ -42,18 +42,6 @@ module.exports.getSpotsByArea = async function (lat, long, dist) {
     }
 }
 
-module.exports.getSpotsByType = async function (type_id) {
-    try {
-        let sql = "select * from spots where sp_st_id = $1"
-        let result = await pool.query(sql, [type_id])
-        let spots = result.rows
-        return {status: 200, data: spots}
-    }catch (e) {
-        console.log(e)
-        return {status: 500, data: e}
-    }
-}
-
 module.exports.createSpot = async function (user) {
 
     try {
@@ -165,15 +153,3 @@ module.exports.getPhotoAndAvgBySpotId = async function (id) {
     }
 }
 
-module.exports.getSpotsForList = async function () {
-    try {
-        let sql = `select sp_id, sp_name, ph_name , avg(se_rate) from all_photos
-                                                                          inner join spots on sp_id = ph_sp_id inner join spot_evaluations on sp_id = se_sp_id
-                   group by ph_name, sp_name, sp_id order by avg(se_rate) desc;`
-        let result = await pool.query(sql)
-        return {status: 200, data: result.rows}
-    }catch (e) {
-        console.log(e)
-        return {status: 500, data: e}
-    }
-}

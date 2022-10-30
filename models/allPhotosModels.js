@@ -1,6 +1,8 @@
 const pool = require('../database/connection');
 
-
+/*
+* this function gets all the photos of a spot from the database
+* */
 module.exports.getPhoto = async function (id) {
     try {
         let sql = "select * from all_photos where ph_id = $1"
