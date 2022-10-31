@@ -8,9 +8,9 @@ const cloudinary = require('cloudinary').v2
 
 router.post('/save',  async function (req,res) {
     let queryObject = url.parse(req.url, true).query;
-    let fileName = queryObject.us_name
-    let spotsId = queryObject.us_name
-    let userId = queryObject.us_name
+    let directory = queryObject.dir
+    let spotsId = queryObject.spot
+    let userId = queryObject.user
 
     // cloudinary credentials
     cloudinary.config({
@@ -23,17 +23,12 @@ router.post('/save',  async function (req,res) {
     form.parse(req, async function (err, fields, files) {
 
         const oldpath = files.filetoupload.filepath;
-        let imageName = files.filetoupload.originalFilename
-        let position = imageName.indexOf(".")
-        let newImageName = imageName.substring(0, position)
-
 
         let photoStore = await allPhotos.createPhoto(spotsId, userId)
 
-
-        cloudinary.uploader.upload(oldpath,
+        await cloudinary.uploader.upload(oldpath,
             {
-                public_id: fileName + "/" + photoStore.id
+                public_id: directory + "/" + photoStore.ph_name
             },
             function (err, callResult) {
                 console.log(err, callResult)
