@@ -42,7 +42,7 @@ router.get('/update/:id(\\d+)', async function (req, res, next) {
 
 router.get('/type/:id(\\d+)/listUse', async function (req, res, next) {
     let id = req.params.id
-    let result = await spotsModel.getSpotsForListById(id)
+    let result = await spotsModel.getSpotsForListByIdOrderByRateAsc(id)
     res.status(result.status).send(result.data)
 })
 
