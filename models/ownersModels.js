@@ -2,7 +2,7 @@ const pool = require('../database/connection');
 
 module.exports.getOwers = async function(){
     try {
-        let sql = "select * from owers";
+        let sql = "select * from owners";
         let result  = await pool.query(sql)
         let owers = result.rows
         console.log(JSON.stringify(owers))
