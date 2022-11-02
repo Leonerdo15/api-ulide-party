@@ -1,5 +1,24 @@
 const pool = require('../database/connection');
 
+
+module.exports.getNoValidRequests = async function () {
+    try {
+        let sql = `select ow_id, ow_us_id, ow_sp_id, ow_validation, sr_id, sr_text_request, sr_validation, sr_ow_id, ph_id, ph_name
+                   from owners
+                            inner join spot_requests on owners.ow_id = spot_requests.sr_ow_id
+                            inner join photos_spots_requests on spot_requests.sr_id = photos_spots_requests.psr_sr_id
+                            inner join all_photos on photos_spots_requests.psr_ph_id = ph_id
+                   where ow_validation = false and sr_validation = false`
+        console.log(sql)
+        let result = await pool.query(sql)
+        return {status: 200, data: result.rows}
+    }catch (e) {
+        console.log(e)
+        return {status: 500, data: e}
+    }
+}
+
+
 module.exports.postOwner = async function (owner) {
     try {
         let sql = `insert into owners (ow_us_id, ow_sp_id) values ('${owner.ow_us_id}', '${owner.ow_sp_id}') returning *`
@@ -15,7 +34,7 @@ module.exports.postOwner = async function (owner) {
 
 module.exports.postSpotRequests = async function (spotRequest) {
     try {
-        let sql = `insert into spot_requests (sr_text_request, sr_validation, sr_ow_id) values ('${spotRequest.sr_text_request}', '${spotRequest.sr_validation}', '${spotRequest.sr_ow_id}') returning *`
+        let sql = `insert into spot_requests (sr_text_request, sr_ow_id) values ('${spotRequest.sr_text_request}', '${spotRequest.ow_id}') returning *`
         console.log(sql)
         let result = await pool.query(sql)
         console.log(result.rows[0], "result")
@@ -28,7 +47,7 @@ module.exports.postSpotRequests = async function (spotRequest) {
 
 module.exports.postPhotosSpotsRequests = async function (photoSpotRequest) {
     try {
-        let sql = `insert into photos_spots_requests (psr_ph_id, psr_sr_id) values ('${photoSpotRequest.psr_ph_id}', '${photoSpotRequest.psr_sr_id}') returning *`
+        let sql = `insert into photos_spots_requests (psr_ph_id, psr_sr_id) values ('${photoSpotRequest.ph_id}', '${photoSpotRequest.sr_id}') returning *`
         console.log(sql)
         let result = await pool.query(sql)
         console.log(result.rows[0], "result")

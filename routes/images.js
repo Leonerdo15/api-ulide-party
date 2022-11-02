@@ -33,7 +33,7 @@ router.post('/save',  async function (req,res) {
             function (err, callResult) {
                 console.log(err, callResult)
             })
-        res.status(200).send("Estou farto disto. Nem sou cristao mas Deus ajuda meu pai. sarava!!!!");
+        res.status(200).send(photoStore.data);
         res.end();
     });
 })
