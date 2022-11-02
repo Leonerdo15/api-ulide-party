@@ -40,9 +40,20 @@ router.get('/update/:id(\\d+)', async function (req, res, next) {
     res.status(200).send(result.data.rows[0])
 })
 
+//get spots for list
 router.get('/type/:id(\\d+)/listUse', async function (req, res, next) {
     let id = req.params.id
-    let result = await spotsModel.getSpotsForListByIdOrderByRateAsc(id)
+    let result = await spotsModel.getSpotsForListByIdOrderBy(id,"rateDesc")
+
+    res.status(result.status).send(result.data)
+})
+
+//get spots for list by different order
+router.get('/type/:id(\\d+)/listUse/:order', async function (req, res, next) {
+    let id = req.params.id
+    let order = req.params.order
+    let result = await spotsModel.getSpotsForListByIdOrderBy(id, order)
+
     res.status(result.status).send(result.data)
 })
 

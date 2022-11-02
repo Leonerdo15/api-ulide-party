@@ -120,71 +120,54 @@ module.exports.deleteSpot = async function (id) {
     }
 }
 
-module.exports.getSpotsForListByIdOrderByRateAsc = async function (id) {
+module.exports.getSpotsForListByIdOrderBy = async function (id, order) {
+    
     try {
-        let sql = `select  sp_id, sp_name, ph_name, COALESCE(avg(se_rate),0) avg from all_photos
-                                                                                          inner join spots  on sp_id = ph_sp_id
-                                                                                          full outer join spot_evaluations on sp_id = se_sp_id
-                   where sp_st_id = ${id}
-                   group by sp_name, ph_name, sp_id
-                   order by avg(se_rate) asc;`
-
-        let result = await pool.query(sql)
-        return {status: 200, data: result.rows}
-    }catch (e) {
-        console.log(e)
-        return {status: 500, data: e}
-    }
-}
-
-module.exports.getSpotsForListByIdOrderByRateDesc = async function (id) {
-    try {
-        let sql = `select  sp_id, sp_name, ph_name, COALESCE(avg(se_rate),0) avg from all_photos
+        let result
+        let sqlRateAsc = `select  sp_id, sp_name, ph_name, COALESCE(avg(se_rate),0) avg from all_photos
                                                                                           inner join spots  on sp_id = ph_sp_id
                                                                                           full outer join spot_evaluations on sp_id = se_sp_id
                    where sp_st_id = ${id}
                    group by sp_name, ph_name, sp_id
                    order by avg(se_rate) desc;`
-
-        let result = await pool.query(sql)
-        return {status: 200, data: result.rows}
-    }catch (e) {
-        console.log(e)
-        return {status: 500, data: e}
-    }
-}
-
-module.exports.getSpotsForListByIdOrderByViewsDesc = async function (id) {
-    try {
-        let sql = `select  sp_id, sp_name, ph_name, sp_views from all_photos
-                                                                                          inner join spots  on sp_id = ph_sp_id
-                   where sp_st_id = ${id}
-                   group by sp_name, ph_name, sp_id, sp_views
-                   order by sp_views desc;`
-
-        let result = await pool.query(sql)
-        return {status: 200, data: result.rows}
-    }catch (e) {
-        console.log(e)
-        return {status: 500, data: e}
-    }
-}
-
-module.exports.getSpotsForListByIdOrderByViewsAsc=async function (id){
-    try {
-        let sql = `select  sp_id, sp_name, ph_name, sp_views from all_photos
+        let sqlViewAsc = `select  sp_id, sp_name, ph_name, sp_views from all_photos
                                                                                           inner join spots  on sp_id = ph_sp_id
                    where sp_st_id = ${id}
                    group by sp_name, ph_name, sp_id, sp_views
                    order by sp_views asc;`
+        let sqlRateDesc = `select  sp_id, sp_name, ph_name, COALESCE(avg(se_rate),0) avg from all_photos
+                                                                                          inner join spots  on sp_id = ph_sp_id
+                                                                                          full outer join spot_evaluations on sp_id = se_sp_id
+                   where sp_st_id = ${id}
+                   group by sp_name, ph_name, sp_id
+                   order by avg(se_rate) asc ;`
+        let sqlViewDesc =`select  sp_id, sp_name, ph_name, sp_views from all_photos
+                                                                                          inner join spots  on sp_id = ph_sp_id
+                   where sp_st_id = ${id}
+                   group by sp_name, ph_name, sp_id, sp_views
+                   order by sp_views desc ;`
 
-        let result = await pool.query(sql)
+        if(order === "rateAsc" ){
+            result = await pool.query(sqlRateAsc)
+        }
+        else if(order === "rateDesc"){
+            result = await pool.query(sqlRateDesc)
+        }
+        else if(order === "viewAsc"){
+            result = await pool.query(sqlViewAsc)
+        }
+        else if(order === "viewDesc"){
+            result = await pool.query(sqlViewDesc)
+        }
+
         return {status: 200, data: result.rows}
     }catch (e) {
         console.log(e)
         return {status: 500, data: e}
     }
+   
 }
+
 
 /*module.exports.getSpotsForListByIdOrderByDistanceAsc = async function (id, lat, long) {
     try {

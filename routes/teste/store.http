@@ -1,24 +1,4 @@
-POST http://localhost:8080/api/photo/save/asdjhabsd
-Content-Type: application/json
-
-{
-    "us_name": "test",
-    "us_password": "test"
-}
-
-###
-GET http://localhost:8080/api/tags
+GET http://localhost:3000/api/spots/type/1/listUse/viewDesc
 Accept: application/json
-
-###
-PUT https://ulide-party-api.herokuapp.com/api/spots/2
-Content-Type: application/json
-
-{"sp_name":"Mercado Oriental",
-  "sp_location":"POINT(38.7159566 -9.1369585)",
-  "sp_description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit, tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit, quia. Quo neque error repudiandae fuga? Ipsa laudantium molestias eos  sapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam recusandae alias error harum maxime adipisci amet laborum.",
-  "sp_tel":"924572168",
-  "sp_email":"teste2@gmail.com"
-}
 
 ###
