@@ -30,6 +30,18 @@ module.exports.getSpotById = async function(id){
     }
 }
 
+module.exports.getSpotByName = async function (name) {
+    try {
+        let sql = `select *, st_x(sp_location) sp_lat, st_y(sp_location) sp_long from spots where sp_name like '%${name}%'`
+        let result = await pool.query(sql)
+        return {status:200, data: result.rows}
+    }catch (e) {
+        console.log(e)
+        return {status: 500, data: e}
+    }
+}
+
+
 module.exports.getSpotsByArea = async function (lat, long, dist) {
     try {
         let sql = `with data as( select st_astext(ST_Buffer( ST_GeomFromText(\'POINT(${lat} ${long})\'), ${dist}, \'quad_segs=8\')) circ ) select ST_AsText(ST_Intersection(sp_location, data.circ::geometry)) from spots, data;`

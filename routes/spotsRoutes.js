@@ -18,6 +18,13 @@ router.get('/:id(\\d+)', async function (req, res, next) {
     res.status(result.status).send(result.data)
 })
 
+/*GET a specific spot by name*/
+router.get('name/:name', async function (req, res, next) {
+    let name = req.params.name
+    let result = await spotsModel.getSpotByName(name)
+    res.status(result.status).send(result.data)
+})
+
 /*GET the spots in designated area*/
 router.get('/area', async function (req, res ,next) {
     let queryObject = url.parse(req.url, true).query;
