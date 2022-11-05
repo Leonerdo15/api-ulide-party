@@ -142,22 +142,26 @@ module.exports.getSpotsForListByIdOrderBy = async function (id, order) {
                    where sp_st_id = ${id}
                    group by sp_name, ph_name, sp_id
                    order by avg(se_rate) desc;`
-        let sqlViewAsc = `select  sp_id, sp_name, ph_name, sp_views, sp_verification from all_photos
-                                                                                          inner join spots  on sp_id = ph_sp_id
-                   where sp_st_id = ${id}
-                   group by sp_name, ph_name, sp_id, sp_views
-                   order by sp_views asc;`
+        let sqlViewAsc = `
+                            select  sp_id, sp_name, ph_name, sp_views, sp_verification, COALESCE(avg(se_rate),0) avg, sp_verification from all_photos
+                                inner join spots  on sp_id = ph_sp_id
+                                full outer join spot_evaluations on sp_id = se_sp_id
+                                                                                                                                      where sp_st_id = ${id}
+                                                                                                                                      group by sp_name, ph_name, sp_id, sp_views
+                                                                                                                                      order by sp_views asc;`
         let sqlRateDesc = `select  sp_id, sp_name, ph_name, COALESCE(avg(se_rate),0) avg, sp_verification from all_photos
                                                                                           inner join spots  on sp_id = ph_sp_id
                                                                                           full outer join spot_evaluations on sp_id = se_sp_id
                    where sp_st_id = ${id}
                    group by sp_name, ph_name, sp_id
                    order by avg(se_rate) asc ;`
-        let sqlViewDesc =`select  sp_id, sp_name, ph_name, sp_views, sp_verification from all_photos
-                                                                                          inner join spots  on sp_id = ph_sp_id
-                   where sp_st_id = ${id}
-                   group by sp_name, ph_name, sp_id, sp_views
-                   order by sp_views desc ;`
+        let sqlViewDesc =`
+            select  sp_id, sp_name, ph_name, sp_views, sp_verification, COALESCE(avg(se_rate),0) avg, sp_verification from all_photos
+                                                                                                                               inner join spots  on sp_id = ph_sp_id
+                                                                                                                               full outer join spot_evaluations on sp_id = se_sp_id
+            where sp_st_id = ${id}
+            group by sp_name, ph_name, sp_id, sp_views
+            order by sp_views desc;`
 
         if(order === "rateAsc" ){
             result = await pool.query(sqlRateAsc)

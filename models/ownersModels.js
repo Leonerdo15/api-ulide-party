@@ -1,5 +1,8 @@
 const pool = require('../database/connection');
 
+/*get all owner*/
+
+
 
 module.exports.getNoValidRequests = async function () {
     try {
