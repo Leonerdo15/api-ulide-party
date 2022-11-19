@@ -20,4 +20,12 @@ let obj3 = {
     ...obj2
 }
 
-console.log(obj3)
+let obj4 = {
+    obj: "teste",
+}
+
+console.log(obj4)
+
+obj4.teste = "link aqui"
+
+console.log(obj4)

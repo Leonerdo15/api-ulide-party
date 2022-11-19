@@ -15,5 +15,6 @@
     <orderEntry type="library" name="twitter-bootstrap" level="application" />
     <orderEntry type="library" name="api" level="application" />
     <orderEntry type="library" name="pyscript" level="application" />
+    <orderEntry type="library" name="jquery-1.11.1" level="application" />
   </component>
 </module>

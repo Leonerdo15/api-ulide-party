@@ -25,6 +25,7 @@
     "sequelize": "^6.24.0",
     "sqlite3": "^5.1.2",
     "sync-request": "^6.1.0",
+    "winston": "^3.8.2",
     "xhr2": "^0.2.1"
   }
 }

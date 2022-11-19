@@ -1,5 +1,6 @@
 const pool = require('../database/connection');
 const md5 = require("md5");
+const logger = require('../logger/teste');
 
 module.exports.getUsers = async function(){
     try {
@@ -38,6 +39,7 @@ module.exports.getUserById = async function (id) {
         let sql = "SELECT * FROM users WHERE us_id = $1"
         let result = await pool.query(sql, [id]);
         let user = result.rows[0]
+        logger.debug(`id: ${id}`)
         return  {status: 200, data: user}
     }catch (err) {
         console.log(err)
@@ -46,11 +48,11 @@ module.exports.getUserById = async function (id) {
 }
 
 module.exports.getLoginAuthentication = async function (name, password) {
-    console.log("us_name: " + name + " password: " + password)
     try {
         let sql = "select us_id, us_name, us_tu_id from users where us_name = $1 and us_password = $2"
         let result = await pool.query(sql, [name, password])
         let user = result.rows[0]
+        logger.debug(`userName: ${name} - password: ${password}`)
         return {status: 200, data: user}
     }catch (err) {
         console.log(err)
