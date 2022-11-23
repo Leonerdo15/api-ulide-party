@@ -30,6 +30,10 @@ const logger = createLogger({
             level: 'debug',
             filename: './logger/saves/logsDebug.log'
         }),
+        new transports.File({
+            level: 'test',
+            filename: './logger/test.log'
+        }),
         new transports.Console()
     ],
 });
